@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
 
-    //[SerializeField] private Canvas canvas;
     [SerializeField] private RectTransform _rectTransform;
     [SerializeField] private CanvasGroup _canvasGroup;
 
@@ -25,8 +24,6 @@ public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragH
     public void OnDrag(PointerEventData eventData)
     {
         this._rectTransform.anchoredPosition += eventData.delta;
-
-        //this._rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)

@@ -8,7 +8,6 @@ public class ContainerDragAndDrop : LoboMonoBehaviour, IDropHandler
 {
 
     [SerializeField] private Image _containerImage;
-    [SerializeField] private bool _isFull = false;
 
     protected override void LoadComponents()
     {
@@ -28,7 +27,6 @@ public class ContainerDragAndDrop : LoboMonoBehaviour, IDropHandler
         if (eventData.pointerDrag == null) return;
         eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
         this._containerImage.enabled = false;
-        this._isFull = true;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -43,13 +41,13 @@ public class ContainerDragAndDrop : LoboMonoBehaviour, IDropHandler
 
     void OnEnabledContainerImage()
     {
-        if (this._isFull) return;
+        if (transform.childCount > 0) return;
         this._containerImage.enabled = true;
     }
 
     void DisabledContainerImage()
     {
-        if (this._isFull) return;
+        if (transform.childCount > 0) return;
         this._containerImage.enabled = false;
     }
 

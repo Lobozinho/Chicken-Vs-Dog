@@ -44,3 +44,6 @@ TagManager:
   - name: Chicken
     uniqueID: 3688750169
     locked: 0
+  - name: Dog
+    uniqueID: 177767077
+    locked: 0

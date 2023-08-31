@@ -13129,7 +13129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3426822707814079026, guid: c09eeff8fa150584397def51d5ef6083, type: 3}
       propertyPath: m_ChildAlignment
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5536129591323914574, guid: c09eeff8fa150584397def51d5ef6083, type: 3}
       propertyPath: m_Name

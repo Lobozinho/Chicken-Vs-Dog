@@ -24,9 +24,14 @@ public class ContainerDragAndDrop : LoboMonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.pointerDrag == null) return;
-        eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-        this._containerImage.enabled = false;
+        Debug.Log("OnDrop");
+        //if (eventData.pointerDrag == null) return;
+        //eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+        //this._containerImage.enabled = false;
+        GameObject dropObj = eventData.pointerDrag;
+        ObjectDragAndDrop objectDragAndDrop = dropObj.GetComponent<ObjectDragAndDrop>();
+        //if (objectDragAndDrop == null) Debug.Log("objectDragAndDrop");
+        objectDragAndDrop.SetRealParent(transform);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

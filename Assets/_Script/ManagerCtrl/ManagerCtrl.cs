@@ -23,7 +23,7 @@ public class ManagerCtrl : LoboMonoBehaviour
         this.LoadInputManager();
     }
 
-    protected virtual void LoadInputManager()
+    void LoadInputManager()
     {
         if (this._inputManager != null) return;
         this._inputManager = GetComponentInChildren<InputManager>();

@@ -163,9 +163,11 @@ GameObject:
   - component: {fileID: 1067516184668793174}
   - component: {fileID: 4550700988713421388}
   - component: {fileID: 5374585419393226706}
+  - component: {fileID: 3844542112512018801}
+  - component: {fileID: -196303337905937619}
   m_Layer: 5
   m_Name: Chichkens_05
-  m_TagString: Untagged
+  m_TagString: Chickens
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,3 +232,30 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &3844542112512018801
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3221737593744842890}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &-196303337905937619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3221737593744842890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079dccceb62aba14181b5fc655c762bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 3844542112512018801}
+  _realParent: {fileID: 0}
+  _image: {fileID: 5374585419393226706}

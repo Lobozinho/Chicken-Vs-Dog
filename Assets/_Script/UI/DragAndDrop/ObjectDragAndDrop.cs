@@ -8,7 +8,7 @@ public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragH
 {
 
     //[SerializeField] private RectTransform _rectTransform;
-    //[SerializeField] private CanvasGroup _canvasGroup;
+    [SerializeField] private CanvasGroup _canvasGroup;
     [SerializeField] private Transform _realParent;
     [SerializeField] private Image _image;
 
@@ -20,7 +20,7 @@ public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragH
     protected override void LoadComponents()
     {
         //this._rectTransform = GetComponent<RectTransform>();
-        //this._canvasGroup = GetComponent<CanvasGroup>();
+        this._canvasGroup = GetComponent<CanvasGroup>();
         this.LoadImage();
     }
 
@@ -33,10 +33,10 @@ public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragH
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //this._canvasGroup.alpha = .6f;
-        //this._canvasGroup.blocksRaycasts = false;
+        this._canvasGroup.alpha = .6f;
+        this._canvasGroup.blocksRaycasts = false;
         this._realParent = transform.parent;
-        transform.SetParent(UICtrl.Instance.transform);
+        transform.SetParent(ContainersCtrl.Instance.transform);
         this._image.raycastTarget = false;
     }
 
@@ -50,8 +50,8 @@ public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragH
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        //this._canvasGroup.alpha = 1f;
-        //this._canvasGroup.blocksRaycasts = true;
+        this._canvasGroup.alpha = 1f;
+        this._canvasGroup.blocksRaycasts = true;
         transform.SetParent(this._realParent);
         this._image.raycastTarget = true;
     }

@@ -8,6 +8,7 @@ public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragH
 
     //[SerializeField] private RectTransform _rectTransform;
     //[SerializeField] private CanvasGroup _canvasGroup;
+    [SerializeField] private Transform realParent;
 
     //protected override void LoadComponents()
     //{
@@ -19,6 +20,8 @@ public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragH
     {
         //this._canvasGroup.alpha = .6f;
         //this._canvasGroup.blocksRaycasts = false;
+        this.realParent = transform.parent;
+        transform.parent = UICtrl.Instance.transform;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -33,6 +36,7 @@ public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragH
     {
         //this._canvasGroup.alpha = 1f;
         //this._canvasGroup.blocksRaycasts = true;
+        transform.parent = this.realParent;
     }
 
     Vector3 GetMousePos()

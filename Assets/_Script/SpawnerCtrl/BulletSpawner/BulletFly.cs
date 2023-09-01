@@ -5,12 +5,12 @@ using UnityEngine;
 public class BulletFly : MonoBehaviour
 {
     
-    [SerializeField] protected float moveSpeed = 1f;
-    [SerializeField] protected Vector3 direction = Vector3.right;
+    [SerializeField] private float _moveSpeed = 1f;
+    [SerializeField] private Vector3 _direction = Vector3.right;
 
     void Update()
     {
-        transform.parent.Translate(this.direction * this.moveSpeed * Time.deltaTime);
+        transform.parent.Translate(this._direction * this._moveSpeed * Time.deltaTime);
     }
 
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1072832932443883930}
   - component: {fileID: 3426822707814079026}
   - component: {fileID: -506636748693375905}
-  - component: {fileID: -5752930401092935292}
+  - component: {fileID: -6461827875083173939}
   m_Layer: 5
   m_Name: Lobby
   m_TagString: Untagged
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-5752930401092935292
+--- !u!114 &-6461827875083173939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,4 +114,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3521f17ec98547c44b5d77538bcb9120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _containerImage: {fileID: -506636748693375905}
+  isStandy: 0

@@ -10,7 +10,7 @@ public class ChickenShooting : MonoBehaviour
 
     [SerializeField] private float _shootDelay = 1f;
     [SerializeField] private float _shootTimer = 0f;
-
+    
     public void SetIsStandy(bool value)
     {
         this._isStandy = value;
@@ -26,7 +26,8 @@ public class ChickenShooting : MonoBehaviour
         if (!this._isShooting) return;
         if(!this._isStandy) return;
         if (this.CheckDelayTime()) return;
-        ManagerCtrl.Instance.SpawnerManager.BulletSpawning(transform.parent.position);
+        Vector3 BulletSpawnPos = transform.parent.position;
+        ManagerCtrl.Instance.SpawnerManager.BulletSpawning(BulletSpawnPos);
     }
 
     bool CheckDelayTime()

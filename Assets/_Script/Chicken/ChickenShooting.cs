@@ -5,10 +5,16 @@ using UnityEngine;
 public class ChickenShooting : MonoBehaviour
 {
     
-    [SerializeField] protected bool isShooting = false;
+    [SerializeField] private bool _isShooting = false;
+    [SerializeField] private bool _isStandy = false;
 
-    [SerializeField] protected float shootDelay = 1f;
-    [SerializeField] protected float shootTimer = 0f;
+    [SerializeField] private float _shootDelay = 1f;
+    [SerializeField] private float _shootTimer = 0f;
+
+    public void SetIsStandy(bool value)
+    {
+        this._isStandy = value;
+    }
 
     private void FixedUpdate()
     {
@@ -17,13 +23,18 @@ public class ChickenShooting : MonoBehaviour
 
     void Shooting()
     {
-        if (!this.isShooting) return;
-        this.shootTimer += Time.fixedDeltaTime;
-        if (this.shootTimer < this.shootDelay) return;
-        this.shootTimer = 0;
+        if (!this._isShooting) return;
+        if(!this._isStandy) return;
+        if (this.CheckDelayTime()) return;
         ManagerCtrl.Instance.SpawnerManager.BulletSpawning(transform.parent.position);
     }
 
-    
+    bool CheckDelayTime()
+    {
+        this._shootTimer += Time.fixedDeltaTime;
+        if (this._shootTimer < this._shootDelay) return true;
+        this._shootTimer = 0;
+        return false;
+    }
 
 }

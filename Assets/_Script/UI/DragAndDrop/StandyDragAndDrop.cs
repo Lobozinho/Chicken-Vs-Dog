@@ -14,6 +14,7 @@ public class StandyDragAndDrop : MonoBehaviour, IDropHandler
         GameObject dropObj = eventData.pointerDrag;
         if (!dropObj.CompareTag(this.CHICKENS_TAG)) return;
         this.SetRealParent(dropObj);
+        this.SetStandy(dropObj);
     }
 
     void SetRealParent(GameObject dropObj)
@@ -22,9 +23,10 @@ public class StandyDragAndDrop : MonoBehaviour, IDropHandler
         objectDragAndDrop.SetRealParent(transform);
     }
 
-    void SetShooting()
+    void SetStandy(GameObject dropObj)
     {
-
+        ChickenShooting chickenShooting = dropObj.GetComponentInChildren<ChickenShooting>();
+        chickenShooting.SetIsStandy(true);
     }
 
 }

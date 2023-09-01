@@ -6,10 +6,31 @@ using UnityEngine;
 
 public class DogDamageReceiver : DamageReceiver
 {
+    [Header("Dog Damage Receiver")]
+    [SerializeField] private DogPrefabCtrl _dogPrefabCtrl;
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        this.LoadDogPrefabCtrl();
+    }
+
+    void LoadDogPrefabCtrl()
+    {
+        if (this._dogPrefabCtrl != null) return;
+        this._dogPrefabCtrl = GetComponentInParent<DogPrefabCtrl>();
+        Debug.LogWarning(transform.name + ": LoadDogPrefabCtrl", gameObject);
+    }
 
     protected override void OnDead()
     {
-        Debug.Log("OnDead");
+        this._dogPrefabCtrl.Animation.SetDead();
+        Invoke(nameof(this.DogDespawn), 1f);
+    }
+
+    void DogDespawn()
+    {
+        this._dogPrefabCtrl.Despawn.Despawning();
     }
 
 }

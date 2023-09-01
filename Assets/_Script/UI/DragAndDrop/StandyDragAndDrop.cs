@@ -13,7 +13,18 @@ public class StandyDragAndDrop : MonoBehaviour, IDropHandler
         if (transform.childCount > 0) return;
         GameObject dropObj = eventData.pointerDrag;
         if (!dropObj.CompareTag(this.CHICKENS_TAG)) return;
+        this.SetRealParent(dropObj);
+    }
+
+    void SetRealParent(GameObject dropObj)
+    {
         ObjectDragAndDrop objectDragAndDrop = dropObj.GetComponent<ObjectDragAndDrop>();
         objectDragAndDrop.SetRealParent(transform);
     }
+
+    void SetShooting()
+    {
+
+    }
+
 }

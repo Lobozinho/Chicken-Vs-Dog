@@ -32,7 +32,7 @@ public class DogSpawner : Spawner
     {
         if (this.CheckTimeDelay()) return;
         Transform prefab = this.RandomPrefab();
-        Vector3 spawnPos = this._spawnPosition.RamdomSpawnPosition().position;
+        Vector3 spawnPos = this._spawnPosition.RamdomSpawnPosition();
         Transform obj = this.Spawn(prefab, spawnPos, Quaternion.identity);
         obj.gameObject.SetActive(true);
     }

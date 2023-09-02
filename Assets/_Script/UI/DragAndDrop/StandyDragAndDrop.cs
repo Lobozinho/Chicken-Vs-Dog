@@ -12,4 +12,12 @@ public class StandyDragAndDrop : ContainersDragAndDrop
         this.isStandy = true;
     }
 
+    protected override void SetIndexStandy(ObjectDragAndDrop objectDragAndDrop)
+    {
+        string standyName = transform.gameObject.name;
+        char indexChar = standyName[standyName.Length - 1];
+        int indexStandy = (int)indexChar;
+        objectDragAndDrop.SetIndexStandy(indexStandy);
+    }
+
 }

@@ -10,10 +10,17 @@ public class ChickenShooting : MonoBehaviour
 
     [SerializeField] private float _shootDelay = 1f;
     [SerializeField] private float _shootTimer = 0f;
+
+    [SerializeField] private int _indexStandy;
     
     public void SetIsStandy(bool value)
     {
         this._isStandy = value;
+    }
+
+    public void SetIndexStandy(int indexStandy)
+    {
+        this._indexStandy = indexStandy;
     }
 
     private void FixedUpdate()

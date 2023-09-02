@@ -8,6 +8,8 @@ public class SpawnPosition : LoboMonoBehaviour
     [SerializeField] private List<Transform> _spawnPositions;
     public List<Transform> SpawnPositions => _spawnPositions;
 
+    [SerializeField] private List<List<Transform>> _spawnTransforms;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -26,10 +28,17 @@ public class SpawnPosition : LoboMonoBehaviour
         Debug.Log(transform.name + ": LoadSpawnPositions", gameObject);
     }
 
-    public Transform RamdomSpawnPosition()
+    public Vector3 RamdomSpawnPosition()
     {
         int index = Random.Range(0, this._spawnPositions.Count);
-        return this._spawnPositions[index];
+        Transform spawnPoint = this._spawnPositions[index];
+        Vector3 spawnPos = spawnPoint.position;
+        return spawnPos;
     }
+
+    public void AddDogToList()
+    {
+        
+    }   
 
 }

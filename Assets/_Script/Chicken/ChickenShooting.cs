@@ -8,7 +8,7 @@ public class ChickenShooting : MonoBehaviour
     [SerializeField] private bool _isShooting = false;
     [SerializeField] private bool _isStandy = false;
 
-    [SerializeField] private float _shootDelay = 1f;
+    [SerializeField] private float _shootDelay = 5f;
     [SerializeField] private float _shootTimer = 0f;
 
     [SerializeField] private int _indexStandy;
@@ -25,7 +25,15 @@ public class ChickenShooting : MonoBehaviour
 
     private void FixedUpdate()
     {
+        this.IsShooting();
         this.Shooting();
+    }
+
+    void IsShooting()
+    {
+        SpawnPosition spawnPosition = SpawnerCtrl.Instance.DogSpawner.SpawnPosition;
+        if (spawnPosition.CheckDogPrefabInList(this._indexStandy)) this._isShooting = true;
+        else this._isShooting = false;
     }
 
     void Shooting()

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.TextCore.Text;
 
 public class StandyDragAndDrop : ContainersDragAndDrop
 {
@@ -12,12 +13,13 @@ public class StandyDragAndDrop : ContainersDragAndDrop
         this.isStandy = true;
     }
 
-    protected override void SetIndexStandy(ObjectDragAndDrop objectDragAndDrop)
+    protected override void SetIndexStandy(GameObject dropObj)
     {
         string standyName = transform.gameObject.name;
         char indexChar = standyName[standyName.Length - 1];
-        int indexStandy = (int)indexChar;
-        objectDragAndDrop.SetIndexStandy(indexStandy);
+        int indexStandy = int.Parse(indexChar.ToString());
+        ChickenShooting chickenShooting = dropObj.GetComponentInChildren<ChickenShooting>();
+        chickenShooting.SetIndexStandy(indexStandy);
     }
 
 }

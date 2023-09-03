@@ -16,24 +16,23 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler
         GameObject dropObj = eventData.pointerDrag;
         if (!dropObj.CompareTag(CHICKENS_TAG)) return;
         
-        ObjectDragAndDrop objectDragAndDrop = dropObj.GetComponent<ObjectDragAndDrop>();
-        
-        this.SetRealParent(objectDragAndDrop);
-        this.SetIndexStandy(objectDragAndDrop);
-        this.SetStandy(dropObj);
+        this.SetRealParent(dropObj);
+        this.SetIndexStandy(dropObj);
+        this.SetIsStandy(dropObj);
     }
 
-    void SetRealParent(ObjectDragAndDrop objectDragAndDrop)
+    void SetRealParent(GameObject dropObj)
     {
+        ObjectDragAndDrop objectDragAndDrop = dropObj.GetComponent<ObjectDragAndDrop>();
         objectDragAndDrop.SetRealParent(transform);
     }
 
-    void SetStandy(GameObject dropObj)
+    void SetIsStandy(GameObject dropObj)
     {
         ChickenShooting chickenShooting = dropObj.GetComponentInChildren<ChickenShooting>();
         chickenShooting.SetIsStandy(this.isStandy);
     }
 
-    protected virtual void SetIndexStandy(ObjectDragAndDrop objectDragAndDrop) {}    
+    protected virtual void SetIndexStandy(GameObject dropObj) {}    
 
 }

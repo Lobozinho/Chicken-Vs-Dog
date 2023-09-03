@@ -66,10 +66,15 @@ public class Spawner : LoboMonoBehaviour
         Transform newPrefab = this.GetObjectFromPoll(prefab);
         newPrefab.SetPositionAndRotation(spawnPos, rotation);
 
-        newPrefab.parent = this.holder;
+        this.SetParentNewPrefab(newPrefab);
         this.spawnedCount++;
         return newPrefab;
     }
+
+    protected virtual void SetParentNewPrefab(Transform newPrefab)
+    {
+        newPrefab.parent = this.holder;
+    }    
 
     protected virtual Transform GetObjectFromPoll(Transform prefab)
     {

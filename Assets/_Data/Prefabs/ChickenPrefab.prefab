@@ -183,8 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvasGroup: {fileID: -9202730553521127597}
+  _chickenShooting: {fileID: 4750071633321594062}
   _realParent: {fileID: 0}
-  _image: {fileID: 3219137165014917374}
 --- !u!1 &917691940992928153
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9295a293634b144897e7da805b1f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isShooting: 0
-  shootDelay: 1
-  shootTimer: 0
+  _isShooting: 0
+  _isStandy: 0
+  _shootDelay: 1
+  _shootTimer: 0
+  _indexStandy: 0

@@ -6,9 +6,14 @@ public class DogSpawner : Spawner
 {
     [Header("Dog Spawner")]
     [SerializeField] private SpawnPosition _spawnPosition;
+    public SpawnPosition SpawnPosition => _spawnPosition;
 
     [SerializeField] private float _timer;
     [SerializeField] private float _timeDelay = 5f;
+
+    [SerializeField] private Transform _spawnPoint;
+    
+    [SerializeField] private bool _isSpawn;
 
     protected override void LoadComponents()
     {
@@ -30,13 +35,21 @@ public class DogSpawner : Spawner
 
     void Spawning()
     {
+        if (!this._isSpawn) return;
         if (this.CheckTimeDelay()) return;
         Transform prefab = this.RandomPrefab();
-        Vector3 spawnPos = this._spawnPosition.RamdomSpawnPosition().position;
+        Transform spawnPoint = this._spawnPosition.RamdomSpawnPoint();
+        this._spawnPoint = spawnPoint;
+        Vector3 spawnPos = spawnPoint.position;
         Transform obj = this.Spawn(prefab, spawnPos, Quaternion.identity);
         obj.gameObject.SetActive(true);
     }
-    
+
+    protected override void SetParentNewPrefab(Transform newPrefab)
+    {
+        newPrefab.parent = this._spawnPoint;
+    }
+
     bool CheckTimeDelay()
     {
         if(this._timer < this._timeDelay)

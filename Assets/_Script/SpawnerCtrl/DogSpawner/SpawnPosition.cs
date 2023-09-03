@@ -8,6 +8,8 @@ public class SpawnPosition : LoboMonoBehaviour
     [SerializeField] private List<Transform> _spawnPositions;
     public List<Transform> SpawnPositions => _spawnPositions;
 
+    [SerializeField] private float _offsetShooting = 8;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -26,10 +28,22 @@ public class SpawnPosition : LoboMonoBehaviour
         Debug.Log(transform.name + ": LoadSpawnPositions", gameObject);
     }
 
-    public Transform RamdomSpawnPosition()
+    public Transform RamdomSpawnPoint()
     {
         int index = Random.Range(0, this._spawnPositions.Count);
-        return this._spawnPositions[index];
+        Transform spawnPoint = this._spawnPositions[index];
+        return spawnPoint;
+    }
+
+    public bool CheckDogPrefabInList(int indexStandy)
+    {
+        if (this._spawnPositions[indexStandy - 1].childCount == 0) return false;
+        foreach (Transform dogPrefab in this._spawnPositions[indexStandy - 1])
+        {
+            if (!dogPrefab.gameObject.activeSelf) continue;
+            if (dogPrefab.position.x < this._offsetShooting) return true;
+        }
+        return false;
     }
 
 }

@@ -9,26 +9,48 @@ public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragH
 
     //[SerializeField] private RectTransform _rectTransform;
     [SerializeField] private CanvasGroup _canvasGroup;
-    [SerializeField] private Transform _realParent;
-    [SerializeField] private Image _image;
+    //[SerializeField] private Image _image;
+    [SerializeField] private ChickenShooting _chickenShooting;
 
+    [SerializeField] private Transform _realParent;
+    
     public void SetRealParent(Transform realParent)
     {
         this._realParent = realParent;
     }
 
+    public void SetIndexStandy(int indexStandy)
+    {
+        this._chickenShooting.SetIndexStandy(indexStandy);
+    }
+
     protected override void LoadComponents()
     {
         //this._rectTransform = GetComponent<RectTransform>();
-        this._canvasGroup = GetComponent<CanvasGroup>();
-        this.LoadImage();
+        this.LoadCanvasGroup();
+        this.LoadChickenShooting();
+        //this.LoadImage(); 
     }
 
-    void LoadImage()
+    //void LoadImage()
+    //{
+    //    if (this._image != null) return;
+    //    this._image = GetComponent<Image>();
+    //    Debug.Log(transform.name + ": LoadImage", gameObject);
+    //}
+
+    void LoadCanvasGroup()
     {
-        if (this._image != null) return;
-        this._image = GetComponent<Image>();
-        Debug.Log(transform.name + ": LoadImage", gameObject);
+        if (this._canvasGroup != null) return;
+        this._canvasGroup = GetComponent<CanvasGroup>();
+        Debug.LogWarning(transform.name + ": LoadCanvasGroup", gameObject);
+    }
+
+    void LoadChickenShooting()
+    {
+        if (this._chickenShooting != null) return;
+        this._chickenShooting = GetComponentInChildren<ChickenShooting>();
+        Debug.LogWarning(transform.name + ": LoadChickenShooting", gameObject);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -37,7 +59,7 @@ public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragH
         this._canvasGroup.blocksRaycasts = false;
         this._realParent = transform.parent;
         transform.SetParent(ContainersCtrl.Instance.transform);
-        this._image.raycastTarget = false;
+        //this._image.raycastTarget = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -53,7 +75,7 @@ public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragH
         this._canvasGroup.alpha = 1f;
         this._canvasGroup.blocksRaycasts = true;
         transform.SetParent(this._realParent);
-        this._image.raycastTarget = true;
+        //this._image.raycastTarget = true;
     }
 
     Vector3 GetMousePos()

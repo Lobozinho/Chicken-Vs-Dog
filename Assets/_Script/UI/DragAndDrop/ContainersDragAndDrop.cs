@@ -40,6 +40,25 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler
         this.ChangeAlphaImage(this.alphaEndDrop);
     }
 
+    protected virtual void ChangeColorImage(GameObject collision)
+    {
+        if (transform.childCount > 0) return;
+        if (collision.CompareTag(SHIELD_TAG)) this.ChangeRedImage();
+        else if (collision.CompareTag(CHICKENS_TAG)) this.ChangeWhiteImage();
+    }
+
+    protected virtual void ChangeRedImage()
+    {
+        Color redColor = Color.red;
+        this.image.color = redColor;
+    }
+
+    protected virtual void ChangeWhiteImage()
+    {
+        Color whiteColor = Color.white;
+        this.image.color = whiteColor;
+    }
+
     protected virtual void SetRealParent(GameObject dropObj)
     {
         if (!this.CheckPrefab(dropObj)) return;
@@ -62,11 +81,13 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        this.ChangeColorImage(collision.gameObject);
         this.ChangeAlphaImage(this.alphaDropping);
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
+        this.ChangeColorImage(collision.gameObject);
         this.ChangeAlphaImage(this.alphaEndDrop);
     }
 

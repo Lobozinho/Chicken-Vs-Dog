@@ -173,4 +173,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4142ef6cebfeb2428ed0b4d8751a581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 3898438057148651933}
   isStandy: 1

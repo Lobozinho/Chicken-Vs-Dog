@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class LobbyDragAndDrop : ContainersDragAndDrop
+public class ShieldPlacement : ContainersDragAndDrop
 {
-    public void OnTriggerEnter2D(Collider2D collision)
+   
+    protected override bool CheckPrefab(GameObject dropObj)
     {
-        Debug.Log("OnTriggerEnter2D");
+        if (dropObj.CompareTag(SHIELD_TAG)) return true;
+        return false;
     }
+
     protected override void ResetValue()
     {
         base.ResetValue();

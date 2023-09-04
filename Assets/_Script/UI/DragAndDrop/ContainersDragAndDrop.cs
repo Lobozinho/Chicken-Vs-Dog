@@ -8,7 +8,12 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler
 {
     [Header("ContainersDragAndDrop")]
     [SerializeField] protected const string CHICKENS_TAG = "Chickens";
+    [SerializeField] protected const string SHIELD_TAG = "Shield";
+
     [SerializeField] protected Image image;
+    [SerializeField] protected float alphaDropping = 0.5f;
+    [SerializeField] protected float alphaEndDrop = 0;
+
     [SerializeField] protected bool isStandy;
 
     protected override void LoadComponents()
@@ -24,60 +29,53 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler
         Debug.LogWarning(transform.name + ": LoadImage", gameObject);
     }
 
-    public void OnDrop(PointerEventData eventData)
+    public virtual void OnDrop(PointerEventData eventData)
     {
         if (transform.childCount > 0) return;
 
         GameObject dropObj = eventData.pointerDrag;
-        if (!dropObj.CompareTag(CHICKENS_TAG)) return;
         
         this.SetRealParent(dropObj);
-        this.SetIndexStandy(dropObj);
         this.SetIsStandy(dropObj);
+        this.ChangeAlphaImage(this.alphaEndDrop);
     }
 
-    void SetRealParent(GameObject dropObj)
+    protected virtual void SetRealParent(GameObject dropObj)
     {
+        if (!this.CheckPrefab(dropObj)) return;
         ObjectDragAndDrop objectDragAndDrop = dropObj.GetComponent<ObjectDragAndDrop>();
         objectDragAndDrop.SetRealParent(transform);
     }
 
+    protected virtual bool CheckPrefab(GameObject dropObj)
+    {
+        if (dropObj.CompareTag(CHICKENS_TAG)) return true;
+        return false;
+    }
+
     void SetIsStandy(GameObject dropObj)
     {
+        if (!dropObj.CompareTag(CHICKENS_TAG)) return;
         ChickenShooting chickenShooting = dropObj.GetComponentInChildren<ChickenShooting>();
         chickenShooting.SetIsStandy(this.isStandy);
     }
 
-    protected virtual void SetIndexStandy(GameObject dropObj) {}
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        this.ChangeAlphaImage(this.alphaDropping);
+    }
 
-    //public void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    //this.OnEnabledContainerImage();
-    //    Debug.Log("OnTriggerEnter2D");
-    //    Color imageColor = image.color;
-    //    imageColor.a = 0.5f;
-    //    image.color = imageColor;
-    //}
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        this.ChangeAlphaImage(this.alphaEndDrop);
+    }
 
-    //public void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    Debug.Log("OnTriggerExit2D");
-    //    Color imageColor = image.color;
-    //    imageColor.a = 0f;
-    //    image.color = imageColor;
-    //    //this.DisabledContainerImage();
-    //}
-
-    //void OnEnabledContainerImage()
-    //{
-    //    if (transform.childCount > 0) return;
-    //    this._containerImage.enabled = true;
-    //}
-
-    //void DisabledContainerImage()
-    //{
-    //    if (transform.childCount > 0) return;
-    //    this._containerImage.enabled = false;
-    //}
+    void ChangeAlphaImage(float alphaValue)
+    {
+        if (transform.childCount > 0) return;
+        Color imageColor = image.color;
+        imageColor.a = alphaValue;
+        image.color = imageColor;
+    }
 
 }

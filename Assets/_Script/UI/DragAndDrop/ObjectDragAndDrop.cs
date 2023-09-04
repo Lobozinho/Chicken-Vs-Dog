@@ -4,67 +4,59 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(CanvasGroup))]
+[RequireComponent(typeof(BoxCollider2D))]
+
 public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    [Header("Object Drag And Drop")]
+    [SerializeField] protected CanvasGroup canvasGroup;
+    [SerializeField] protected BoxCollider2D boxCollider2D;
 
-    //[SerializeField] private RectTransform _rectTransform;
-    [SerializeField] private CanvasGroup _canvasGroup;
-    //[SerializeField] private Image _image;
-    [SerializeField] private ChickenShooting _chickenShooting;
-
-    [SerializeField] private Transform _realParent;
+    [SerializeField] protected Transform realParent;
     
     public void SetRealParent(Transform realParent)
     {
-        this._realParent = realParent;
-    }
-
-    public void SetIndexStandy(int indexStandy)
-    {
-        this._chickenShooting.SetIndexStandy(indexStandy);
+        this.realParent = realParent;
     }
 
     protected override void LoadComponents()
     {
-        //this._rectTransform = GetComponent<RectTransform>();
         this.LoadCanvasGroup();
-        this.LoadChickenShooting();
-        //this.LoadImage(); 
+        this.LoadBoxCollider2D();
     }
-
-    //void LoadImage()
-    //{
-    //    if (this._image != null) return;
-    //    this._image = GetComponent<Image>();
-    //    Debug.Log(transform.name + ": LoadImage", gameObject);
-    //}
 
     void LoadCanvasGroup()
     {
-        if (this._canvasGroup != null) return;
-        this._canvasGroup = GetComponent<CanvasGroup>();
+        if (this.canvasGroup != null) return;
+        this.canvasGroup = GetComponent<CanvasGroup>();
         Debug.LogWarning(transform.name + ": LoadCanvasGroup", gameObject);
     }
 
-    void LoadChickenShooting()
+    void LoadBoxCollider2D()
     {
-        if (this._chickenShooting != null) return;
-        this._chickenShooting = GetComponentInChildren<ChickenShooting>();
-        Debug.LogWarning(transform.name + ": LoadChickenShooting", gameObject);
+        if (this.boxCollider2D != null) return;
+        this.boxCollider2D = GetComponent<BoxCollider2D>();
+        Debug.LogWarning(transform.name + ": LoadBoxCollider2D", gameObject);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        this._canvasGroup.alpha = .6f;
-        this._canvasGroup.blocksRaycasts = false;
-        this._realParent = transform.parent;
+        this.canvasGroup.alpha = .6f;
+        this.canvasGroup.blocksRaycasts = false;
+        this.realParent = transform.parent;
         transform.SetParent(ContainersCtrl.Instance.transform);
         //this._image.raycastTarget = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        //this._rectTransform.anchoredPosition += eventData.delta;
+        this.ObjMoveByMouse();
+        this.boxCollider2D.enabled = true;
+    }
+
+    void ObjMoveByMouse()
+    {
         Vector3 mousePos = this.GetMousePos();
         mousePos.z = 0;
         transform.position = mousePos;
@@ -72,10 +64,9 @@ public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragH
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        this._canvasGroup.alpha = 1f;
-        this._canvasGroup.blocksRaycasts = true;
-        transform.SetParent(this._realParent);
-        //this._image.raycastTarget = true;
+        this.canvasGroup.alpha = 1f;
+        this.canvasGroup.blocksRaycasts = true;
+        transform.SetParent(this.realParent);
     }
 
     Vector3 GetMousePos()

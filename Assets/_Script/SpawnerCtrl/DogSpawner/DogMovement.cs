@@ -26,9 +26,14 @@ public class DogMovement : LoboMonoBehaviour
         this.Moving();
     }
 
-    void Moving()
+    public void Moving()
     {
         this._rigidbody2D.velocity = new Vector2(-this._speed, 0f);
     }
+
+    public void Stop()
+    {
+        this._rigidbody2D.velocity = Vector2.zero;
+    }    
 
 }

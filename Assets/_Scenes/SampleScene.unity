@@ -12137,7 +12137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5015764895874689002, guid: 8ff52b8afcab4a74d9b0f99322cacc2b, type: 3}
       propertyPath: m_BodyType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5015764895874689002, guid: 8ff52b8afcab4a74d9b0f99322cacc2b, type: 3}
       propertyPath: m_Simulated
@@ -12253,6 +12253,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 530838929}
     m_Modifications:
+    - target: {fileID: 525354241536119361, guid: 51067bed71b36a04f8beca0fd67f7776, type: 3}
+      propertyPath: hp
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053238677251596831, guid: 51067bed71b36a04f8beca0fd67f7776, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340960943524345978, guid: 51067bed71b36a04f8beca0fd67f7776, type: 3}
+      propertyPath: m_TagString
+      value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 6404650718861233982, guid: 51067bed71b36a04f8beca0fd67f7776, type: 3}
+      propertyPath: m_Size.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6404650718861233982, guid: 51067bed71b36a04f8beca0fd67f7776, type: 3}
+      propertyPath: m_Size.y
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6539630172596113658, guid: 51067bed71b36a04f8beca0fd67f7776, type: 3}
       propertyPath: m_Name
       value: ShieldPrefab

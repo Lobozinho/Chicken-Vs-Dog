@@ -11,6 +11,9 @@ public class DogDamageSender : DamageSender
     [SerializeField] private const string SHIELD_TAG = "Shield";
     [SerializeField] private const string DAMAGE_RECEIVER = "DamageReceiver";
 
+    [SerializeField] private float _timeDelaySend = 2f;
+    [SerializeField] private GameObject _collision;
+
     [SerializeField] private DogPrefabCtrl _ctrl;
 
     protected override void LoadComponents()
@@ -30,9 +33,10 @@ public class DogDamageSender : DamageSender
     {
         if (collision.name != DAMAGE_RECEIVER) return;
         if (!collision.CompareTag(CHICKEN_TAG) && !collision.CompareTag(SHIELD_TAG)) return;
+        this._collision = collision.gameObject;
         this._ctrl.DogMovement.Stop();
         this.SetAnimationAttack(true);
-        this.SendDamage(collision);
+        InvokeRepeating(nameof(this.SendDamage), 0, this._timeDelaySend);
     }
 
     void SetAnimationAttack(bool value)
@@ -40,9 +44,11 @@ public class DogDamageSender : DamageSender
         this._ctrl.Animation.SetAttack(value);
     }
 
-    void SendDamage(Collider2D collision)
+    void SendDamage()
     {
-        DamageReceiver damageReceiver = collision.gameObject.GetComponent<DamageReceiver>();
+        if (!this._collision.activeSelf) CancelInvoke(nameof(this.SendDamage));
+        DamageReceiver damageReceiver = this._collision.GetComponent<DamageReceiver>();
+        if (damageReceiver == null) return;
         this.Send(damageReceiver);
     }
 

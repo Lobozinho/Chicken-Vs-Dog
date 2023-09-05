@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
-
 public class DogDamageReceiver : DamageReceiver
 {
     [Header("Dog Damage Receiver")]
@@ -25,7 +23,7 @@ public class DogDamageReceiver : DamageReceiver
     protected override void OnDead()
     {
         this._dogPrefabCtrl.Animation.SetDead();
-        Invoke(nameof(this.DogDespawn), 1f);
+        Invoke(nameof(DogDespawn), 1f);
     }
 
     void DogDespawn()

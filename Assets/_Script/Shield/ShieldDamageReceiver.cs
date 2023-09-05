@@ -4,16 +4,7 @@ using UnityEngine;
 
 public class ShieldDamageReceiver : DamageReceiver
 {
-    protected override void OnDead()
-    {
-        Debug.Log("OnDead");
-        this.Despawn();    
-    }
 
-    void Despawn()
-    {
-
-    }
 
 
 }

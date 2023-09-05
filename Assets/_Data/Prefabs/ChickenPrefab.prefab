@@ -206,7 +206,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722094215069439028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -463,6 +463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isShooting: 0
   _isStandy: 0
+  _isShootingTest: 0
   _shootDelay: 1
   _shootTimer: 0
   _indexStandy: 0

@@ -9,6 +9,7 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler
     [Header("ContainersDragAndDrop")]
     [SerializeField] protected const string CHICKENS_TAG = "Chickens";
     [SerializeField] protected const string SHIELD_TAG = "Shield";
+    [SerializeField] protected const string DOG_TAG = "Dog";
 
     [SerializeField] protected Image image;
     [SerializeField] protected float alphaDropping = 0.5f;
@@ -81,12 +82,14 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag(DOG_TAG)) return;
         this.ChangeColorImage(collision.gameObject);
         this.ChangeAlphaImage(this.alphaDropping);
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.CompareTag(DOG_TAG)) return;
         this.ChangeColorImage(collision.gameObject);
         this.ChangeAlphaImage(this.alphaEndDrop);
     }

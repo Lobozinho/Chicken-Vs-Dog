@@ -26,7 +26,7 @@ public class BulletDamageSender : DamageSender
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(DOG_TAG)) return;
+        if (!collision.CompareTag(DOG_TAG)) return;
         DamageReceiver damageReceiver = collision.gameObject.GetComponent<DamageReceiver>();
         this.Send(damageReceiver);
     }

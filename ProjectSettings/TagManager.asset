@@ -7,6 +7,7 @@ TagManager:
   - Chickens
   - Dog
   - Shield
+  - Bullet
   layers:
   - Default
   - TransparentFX

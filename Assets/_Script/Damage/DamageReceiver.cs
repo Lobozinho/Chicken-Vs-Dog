@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
+
 public abstract class DamageReceiver : LoboMonoBehaviour
 {
     [Header("Damage Receiver")]
@@ -49,5 +51,8 @@ public abstract class DamageReceiver : LoboMonoBehaviour
         this.isDead = true;
         this.OnDead();
     }
-    protected abstract void OnDead();
+    protected virtual void OnDead()
+    {
+        transform.parent.gameObject.SetActive(false);
+    }
 }

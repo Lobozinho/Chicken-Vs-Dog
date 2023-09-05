@@ -24,7 +24,7 @@ public class BulletDamageSender : DamageSender
 
     void DespawnBullet()
     {
-
+        SpawnerCtrl.Instance.BulletSpawner.Despawn(transform.parent);
     }
 
 }

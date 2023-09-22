@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Chickens
+  - Dog
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -40,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Chicken
+    uniqueID: 3688750169
+    locked: 0
+  - name: Dog
+    uniqueID: 177767077
     locked: 0

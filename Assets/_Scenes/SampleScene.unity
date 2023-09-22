@@ -185,7 +185,7 @@ MonoBehaviour:
   - {fileID: 237183473}
   - {fileID: 605446865}
   - {fileID: 243974143}
-  _offsetShooting: -2
+  _offsetShooting: 8
 --- !u!1 &63498528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,7 +1819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4750071633321594062, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: _isStandy
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4750071633321594062, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: _isShooting

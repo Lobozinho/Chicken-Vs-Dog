@@ -8,7 +8,7 @@ public class SpawnPosition : LoboMonoBehaviour
     [SerializeField] private List<Transform> _spawnPositions;
     public List<Transform> SpawnPositions => _spawnPositions;
 
-    [SerializeField] private float _offsetShooting = 8;
+    [SerializeField] private float _offsetShooting = -2;
 
     protected override void LoadComponents()
     {
@@ -41,7 +41,7 @@ public class SpawnPosition : LoboMonoBehaviour
         foreach (Transform dogPrefab in this._spawnPositions[indexStandy - 1])
         {
             if (!dogPrefab.gameObject.activeSelf) continue;
-            if (dogPrefab.position.x < this._offsetShooting) return true;
+            if (dogPrefab.localPosition.x < this._offsetShooting) return true;
         }
         return false;
     }

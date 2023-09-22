@@ -563,6 +563,6 @@ MonoBehaviour:
   _isShooting: 0
   _isStandy: 0
   _isShootingTest: 0
-  _shootDelay: 1
+  _shootDelay: 5
   _shootTimer: 0
   _indexStandy: 0

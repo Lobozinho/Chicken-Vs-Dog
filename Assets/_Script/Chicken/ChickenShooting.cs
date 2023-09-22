@@ -34,6 +34,7 @@ public class ChickenShooting : MonoBehaviour
     {
         if(!this._isStandy) return;
         if (this._isShootingTest) return;
+        Debug.Log("IsShooting");
         SpawnPosition spawnPosition = SpawnerCtrl.Instance.DogSpawner.SpawnPosition;
         if (spawnPosition.CheckDogPrefabInList(this._indexStandy)) this._isShooting = true;
         else this._isShooting = false;

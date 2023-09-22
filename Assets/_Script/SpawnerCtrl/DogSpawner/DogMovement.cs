@@ -6,7 +6,7 @@ public class DogMovement : LoboMonoBehaviour
 {
 
     [SerializeField] private Rigidbody2D _rigidbody2D;
-    [SerializeField] private float _speed = 1;
+    [SerializeField] private float _speed = 0.3f;
 
     protected override void LoadComponents()
     {

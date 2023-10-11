@@ -1085,6 +1085,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChickenPrefab_9
       objectReference: {fileID: 0}
+    - target: {fileID: 722094215069439028, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1397189437255235513, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1159,11 +1163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 294
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -106
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1865,6 +1869,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChickenPrefab_4
       objectReference: {fileID: 0}
+    - target: {fileID: 722094215069439028, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1397189437255235513, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1939,7 +1947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 439
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3021,6 +3029,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChickenPrefab_2
       objectReference: {fileID: 0}
+    - target: {fileID: 722094215069439028, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1397189437255235513, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3095,7 +3107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 143
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8867,6 +8879,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChickenPrefab_3
       objectReference: {fileID: 0}
+    - target: {fileID: 722094215069439028, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1397189437255235513, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -8941,7 +8957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 296
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -9308,6 +9324,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChickenPrefab_5
       objectReference: {fileID: 0}
+    - target: {fileID: 722094215069439028, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1397189437255235513, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -9382,7 +9402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 587
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -10393,6 +10413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChickenPrefab_6
       objectReference: {fileID: 0}
+    - target: {fileID: 722094215069439028, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1397189437255235513, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -10467,7 +10491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 736
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -11710,6 +11734,15 @@ MonoBehaviour:
   spawnedCount: 0
   prefabs:
   - {fileID: 1790607042}
+  - {fileID: 526062044}
+  - {fileID: 1126099768}
+  - {fileID: 304745131}
+  - {fileID: 1156873521}
+  - {fileID: 1245891429}
+  - {fileID: 1792505439}
+  - {fileID: 1844932596}
+  - {fileID: 138469148}
+  - {fileID: 1910128118}
   poolObjs: []
 --- !u!1 &1377110986
 GameObject:
@@ -14448,7 +14481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 722094215069439028, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_Pivot.x
@@ -14556,6 +14589,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChickenPrefab_7
       objectReference: {fileID: 0}
+    - target: {fileID: 722094215069439028, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1397189437255235513, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -14634,7 +14671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -122
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15092,6 +15129,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChickenPrefab_8
       objectReference: {fileID: 0}
+    - target: {fileID: 722094215069439028, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1397189437255235513, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -15166,11 +15207,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 143
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -113
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15448,6 +15489,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChickenPrefab_10
       objectReference: {fileID: 0}
+    - target: {fileID: 722094215069439028, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1397189437255235513, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -15522,11 +15567,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 436
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -109
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9010675385356150241, guid: ae04e1ac4c32ecb459a8f2cb33d2624b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

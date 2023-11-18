@@ -20,6 +20,9 @@ public class DogPrefabCtrl : LoboMonoBehaviour
     [SerializeField] private DogAnimation _dogAnimation;
     public DogAnimation Animation => _dogAnimation;
 
+    [SerializeField] private DogKillReward _dogKillReward;
+    public DogKillReward DogKillReward => _dogKillReward;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -28,6 +31,7 @@ public class DogPrefabCtrl : LoboMonoBehaviour
         this.LoadDogDespawn();
         this.LoadDogDamageReceiver();
         this.LoadDogAnimation();
+        this.LoadDogSendExp();
     }
 
     void LoadAnimator()
@@ -63,6 +67,13 @@ public class DogPrefabCtrl : LoboMonoBehaviour
         if (this._dogAnimation != null) return;
         this._dogAnimation = GetComponentInChildren<DogAnimation>();
         Debug.LogWarning(transform.name + ": LoadDogAnimation", gameObject);
+    }
+
+    void LoadDogSendExp()
+    {
+        if (this._dogKillReward != null) return;
+        this._dogKillReward = GetComponentInChildren<DogKillReward>();
+        Debug.LogWarning(transform.name + ": LoadDogSendExp", gameObject);
     }
 
 }

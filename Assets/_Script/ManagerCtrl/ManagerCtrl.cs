@@ -14,6 +14,9 @@ public class ManagerCtrl : LoboMonoBehaviour
     [SerializeField] private SpawnerManager _spawnerManager;
     public SpawnerManager SpawnerManager => _spawnerManager;
 
+    [SerializeField] private PlayerManager _playerManager;
+    public PlayerManager PlayerManager => _playerManager;
+
     protected override void Awake()
     {
         if (ManagerCtrl._instance != null) Debug.LogError("only 1 ManagerCtrl allow to exist");
@@ -25,6 +28,7 @@ public class ManagerCtrl : LoboMonoBehaviour
         base.LoadComponents();
         this.LoadInputManager();
         this.LoadSpawnerManager();
+        this.LoadPlayerManager();
     }
 
     void LoadInputManager()
@@ -39,6 +43,13 @@ public class ManagerCtrl : LoboMonoBehaviour
         if (this._spawnerManager != null) return;
         this._spawnerManager = GetComponentInChildren<SpawnerManager>();
         Debug.LogWarning(transform.name + ": LoadSpawnerManager", gameObject);
+    }
+
+    void LoadPlayerManager()
+    {
+        if (this._playerManager != null) return;
+        this._playerManager = GetComponentInChildren<PlayerManager>();
+        Debug.LogWarning(transform.name + ": LoadPlayerManager", gameObject);
     }
 
 }

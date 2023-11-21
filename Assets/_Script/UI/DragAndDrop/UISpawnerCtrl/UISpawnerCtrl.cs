@@ -20,9 +20,9 @@ public class UISpawnerCtrl : LoboMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadChickenSpawner", gameObject);
     }
 
-    public void SpawnInLobby()
+    public void ChickenSpawnInLobby()
     {
-        this._chickenSpawner.SpawnInLobby();
+        this._chickenSpawner.ChickenSpawnInLobby();
     }
 
 }

@@ -11,6 +11,7 @@ public class UICtrl : LoboMonoBehaviour
     [SerializeField] private GameplayScreen _gameplayScreen;
     [SerializeField] private ShoppingMenu _shoppingMenu;
     [SerializeField] private UISpawnerCtrl _uiSpawnerCtrl;
+    [SerializeField] private LobbyCtrl _lobbyCtrl;
 
     protected override void Awake()
     {
@@ -24,6 +25,7 @@ public class UICtrl : LoboMonoBehaviour
         this.LoadGameplayScreen();
         this.LoadShoppingMenu();
         this.LoadUISpawnerCtrl();
+        this.LoadLobbyCtrl();
     }
 
     void LoadGameplayScreen()
@@ -45,6 +47,13 @@ public class UICtrl : LoboMonoBehaviour
         if (this._uiSpawnerCtrl != null) return;
         this._uiSpawnerCtrl = GetComponentInChildren<UISpawnerCtrl>();
         Debug.LogWarning(transform.name + ": LoadUISpawnerCtrl", gameObject);
+    }
+
+    void LoadLobbyCtrl()
+    {
+        if (this._lobbyCtrl != null) return;
+        this._lobbyCtrl = GetComponentInChildren<LobbyCtrl>();
+        Debug.LogWarning(transform.name + ": LoadLobbyCtrl", gameObject);
     }
 
     /// <summary>
@@ -104,9 +113,18 @@ public class UICtrl : LoboMonoBehaviour
     /// UISpawnerCtrl
     /// <summary>
      
-    public void SpawnInLobby()
+    public void ChickenSpawnInLobby()
     {
-        this._uiSpawnerCtrl.SpawnInLobby();
-    }    
+        this._uiSpawnerCtrl.ChickenSpawnInLobby();
+    }
+
+    /// <summary>
+    /// LobbyCtrl
+    /// <summary>
+
+    public Transform CheckLobbyEmpty()
+    {
+        return this._lobbyCtrl.CheckLobbyEmpty();
+    }
 
 }

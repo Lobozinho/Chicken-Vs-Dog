@@ -6,7 +6,9 @@ public class BuyChickenButtonOn : BaseButton
 {
     protected override void OnClick()
     {
-        
+
+        UICtrl.Instance.SpawnInLobby();
+
     }
 
 }

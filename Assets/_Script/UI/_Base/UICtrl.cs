@@ -10,6 +10,7 @@ public class UICtrl : LoboMonoBehaviour
 
     [SerializeField] private GameplayScreen _gameplayScreen;
     [SerializeField] private ShoppingMenu _shoppingMenu;
+    [SerializeField] private UISpawnerCtrl _uiSpawnerCtrl;
 
     protected override void Awake()
     {
@@ -22,6 +23,7 @@ public class UICtrl : LoboMonoBehaviour
         base.LoadComponents();
         this.LoadGameplayScreen();
         this.LoadShoppingMenu();
+        this.LoadUISpawnerCtrl();
     }
 
     void LoadGameplayScreen()
@@ -36,6 +38,13 @@ public class UICtrl : LoboMonoBehaviour
         if (this._shoppingMenu != null) return;
         this._shoppingMenu = GetComponentInChildren<ShoppingMenu>();
         Debug.LogWarning(transform.name + ": LoadShoppingMenu", gameObject);
+    }
+
+    void LoadUISpawnerCtrl()
+    {
+        if (this._uiSpawnerCtrl != null) return;
+        this._uiSpawnerCtrl = GetComponentInChildren<UISpawnerCtrl>();
+        Debug.LogWarning(transform.name + ": LoadUISpawnerCtrl", gameObject);
     }
 
     /// <summary>
@@ -90,5 +99,14 @@ public class UICtrl : LoboMonoBehaviour
     {
         this._shoppingMenu.gameObject.SetActive(true);
     }
+
+    /// <summary>
+    /// UISpawnerCtrl
+    /// <summary>
+     
+    public void SpawnInLobby()
+    {
+        this._uiSpawnerCtrl.SpawnInLobby();
+    }    
 
 }

@@ -18,4 +18,9 @@ public class ChickenSpawner : Spawner
         newPrefab.SetParent(this.holder, false);
     }
 
+    public void SpawnInLobby()
+    {
+        this.ChickenSpawning();
+    }
+
 }

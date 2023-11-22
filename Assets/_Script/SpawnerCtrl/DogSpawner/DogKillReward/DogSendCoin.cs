@@ -11,7 +11,7 @@ public class DogSendCoin : BaseDogKillReward
     {
         int scale = this.dogKillReward.GetScale();
         int coin = scale * this._coinDefault;
-        ManagerCtrl.Instance.PlayerManager.ReceiveCoin(coin);
+        ManagerCtrl.Instance.PlayerManager.IncreaseCoin(coin);
     }    
 
 }

@@ -48,19 +48,31 @@ public class PlayerManager : LoboMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadPlayerCoin", gameObject);
     }
 
+    /// <summary>
+    /// PlayerExperience
+    /// </summary>
+
     public void ReceiveExp(int expPoint)
     {
         this._playerExperience.ReceiveExp(expPoint);
     }
 
-    public void ReceiveCoin(int coin)
-    {
-        this._playerCoin.IncreaseCoin(coin);
-    }
+    /// <summary>
+    /// PlayerLevel
+    /// </summary>
 
     public void LevelUp()
     {
         this._playerLevel.LevelUp();
+    }
+
+    /// <summary>
+    /// PlayerCoin
+    /// </summary>
+
+    public void IncreaseCoin(int coin)
+    {
+        this._playerCoin.IncreaseCoin(coin);
     }
 
     public void DecreaseCoin(int coin)

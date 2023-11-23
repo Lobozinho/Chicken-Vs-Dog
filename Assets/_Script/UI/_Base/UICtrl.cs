@@ -109,10 +109,15 @@ public class UICtrl : LoboMonoBehaviour
         this._shoppingMenu.gameObject.SetActive(true);
     }
 
+    public void CheckPriceAll()
+    {
+        this._shoppingMenu.CheckPriceAll();
+    }    
+
     /// <summary>
     /// UISpawnerCtrl
     /// <summary>
-     
+
     public void ChickenSpawnInLobby()
     {
         this._uiSpawnerCtrl.ChickenSpawnInLobby();

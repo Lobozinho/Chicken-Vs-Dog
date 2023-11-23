@@ -38,21 +38,16 @@ public abstract class BaseShoppingButton : BaseButton
     protected override void OnClick()
     {
         this.level++;
-        ManagerCtrl.Instance.PlayerManager.DecreaseCoin(this.price);
         this.price += this.scale;
+        ManagerCtrl.Instance.PlayerManager.DecreaseCoin(this.price);
         UICtrl.Instance.ShowLevelShoppingMenu(this.index, this.level);
         this.CheckLevel();
-        this.shoppingMenu.CheckPriceAll();
     }
 
     void CheckLevel()
     {
         int levelPlayer = ManagerCtrl.Instance.PlayerManager.GetLevel();
-        if (this.level < levelPlayer)
-        {
-            this.CheckPrice();
-            return;
-        }    
+        if (this.level < levelPlayer) return;
         transform.gameObject.SetActive(false);
         this.OnEnableButtonMax();
     }

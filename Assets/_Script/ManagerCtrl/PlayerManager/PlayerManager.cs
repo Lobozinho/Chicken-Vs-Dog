@@ -73,12 +73,19 @@ public class PlayerManager : LoboMonoBehaviour
     public void IncreaseCoin(int coin)
     {
         this._playerCoin.IncreaseCoin(coin);
+        this.CheckAllCoin();
     }
 
     public void DecreaseCoin(int coin)
     {
         this._playerCoin.DecreaseCoin(coin);
+        this.CheckAllCoin();
     }
+
+    public void CheckAllCoin()
+    {
+        UICtrl.Instance.CheckPriceAll();
+    }    
 
 
 }

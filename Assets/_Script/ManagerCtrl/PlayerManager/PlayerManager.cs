@@ -8,17 +8,7 @@ public class PlayerManager : LoboMonoBehaviour
     [SerializeField] private PlayerExperience _playerExperience;
     [SerializeField] private PlayerLevel _playerLevel;
     [SerializeField] private PlayerCoin _playerCoin;
-
-    public int GetLevel()
-    {
-        return this._playerLevel.GetLevel();
-    }
-
-    public int GetCoin()
-    {
-        return this._playerCoin.GetCoin();
-    }
-
+    
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -61,6 +51,11 @@ public class PlayerManager : LoboMonoBehaviour
     /// PlayerLevel
     /// </summary>
 
+    public int GetLevel()
+    {
+        return this._playerLevel.GetLevel();
+    }
+
     public void LevelUp()
     {
         this._playerLevel.LevelUp();
@@ -69,6 +64,11 @@ public class PlayerManager : LoboMonoBehaviour
     /// <summary>
     /// PlayerCoin
     /// </summary>
+
+    public int GetCoin()
+    {
+        return this._playerCoin.GetCoin();
+    }
 
     public void IncreaseCoin(int coin)
     {

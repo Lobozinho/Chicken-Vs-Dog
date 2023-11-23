@@ -5,4 +5,9 @@ using UnityEngine;
 public class ChickenPriceText : BaseText
 {
     
+    public void ShowChickenPriceText(int price)
+    {
+        this.text.text = price.ToString();
+    }
+
 }

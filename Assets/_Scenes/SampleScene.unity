@@ -8390,6 +8390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 691734846}
+  _chickenPriceText: {fileID: 1337669502}
 --- !u!1001 &707325036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11496,6 +11497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buttonOff: {fileID: 796410449}
   _buttonOn: {fileID: 691734849}
+  _chickenPrice: 0
 --- !u!1 &986524689
 GameObject:
   m_ObjectHideFlags: 0

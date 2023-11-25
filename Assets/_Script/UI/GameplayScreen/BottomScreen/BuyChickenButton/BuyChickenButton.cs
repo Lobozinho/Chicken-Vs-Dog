@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class BuyChickenButton : LoboMonoBehaviour
 {
-
+    [Header("Components")]
     [SerializeField] private BuyChickenButtonOff _buttonOff;
     [SerializeField] private BuyChickenButtonOn _buttonOn;
-    [SerializeField] private int _chickenPrice;
 
     protected override void LoadComponents()
     {
@@ -38,17 +38,16 @@ public class BuyChickenButton : LoboMonoBehaviour
 
     void ShowChickenPriceText()
     {
-        this._buttonOn.ChickenPriceText.ShowChickenPriceText(this._chickenPrice);
+        int chickenPrice = this._buttonOn.chickenPrice;
+        this._buttonOn.ChickenPriceText.ShowChickenPriceText(chickenPrice);
     }    
 
     void CheckPrice()
     {
         int playerCoin = ManagerCtrl.Instance.PlayerManager.GetCoin();
-
-        if (this._chickenPrice < playerCoin) return;
-
+        int chickenPrice = this._buttonOn.chickenPrice;
+        if (chickenPrice <= playerCoin) return;
         this._buttonOn.gameObject.SetActive(false);
-
     }    
 
 }

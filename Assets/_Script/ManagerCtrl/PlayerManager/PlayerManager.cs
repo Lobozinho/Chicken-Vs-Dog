@@ -84,7 +84,7 @@ public class PlayerManager : LoboMonoBehaviour
 
     public void CheckAllCoin()
     {
-        UICtrl.Instance.CheckPriceAll();
+        UICtrl.Instance.CheckAllPriceInUI();
     }    
 
 

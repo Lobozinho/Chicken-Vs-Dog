@@ -5,52 +5,31 @@ using UnityEngine;
 public class GameplayScreen : LoboMonoBehaviour
 {
 
-    [SerializeField] private LevelText _levelText;
-    [SerializeField] private CoinText _coinText;
-    [SerializeField] private LevelExp _levelExp;
+    [SerializeField] private TopScreen _topScreen;
+    public TopScreen TopScreen => _topScreen;
+
+    [SerializeField] private BottomScreen _bottomScreen;
+    public BottomScreen BottomScreen => _bottomScreen;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadLevelText();
-        this.LoadCoinText();
-        this.LoadLevelExp();
+        this.LoadTopScreen();
+        this.LoadBottomScreen();
     }
 
-    void LoadLevelText()
+    void LoadTopScreen()
     {
-        if (this._levelText != null) return;
-        this._levelText = GetComponentInChildren<LevelText>();
-        Debug.LogWarning(transform.name + ": LoadLevelText", gameObject);
+        if (this._topScreen != null) return;
+        this._topScreen = GetComponentInChildren<TopScreen>();
+        Debug.LogWarning(transform.name + ": LoadTopScreen", gameObject);
     }
 
-    void LoadCoinText()
+    void LoadBottomScreen()
     {
-        if (this._coinText != null) return;
-        this._coinText = GetComponentInChildren<CoinText>();
-        Debug.LogWarning(transform.name + ": LoadCoinText", gameObject);
-    }
-
-    void LoadLevelExp()
-    {
-        if (this._levelExp != null) return;
-        this._levelExp = GetComponentInChildren<LevelExp>();
-        Debug.LogWarning(transform.name + ": LoadLevelExp", gameObject);
-    }
-
-    public void ShowLevel(int level)
-    {
-        this._levelText.ShowLevel(level);
-    }
-
-    public void ShowCoin(int coin)
-    {
-        this._coinText.ShowCoin(coin);
-    }
-
-    public void ShowExpSlider(float newValue)
-    {
-        this._levelExp.ShowExpSlider(newValue);
+        if (this._bottomScreen != null) return;
+        this._bottomScreen = GetComponentInChildren<BottomScreen>();
+        Debug.LogWarning(transform.name + ": LoadBottomScreen", gameObject);
     }
 
 }

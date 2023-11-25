@@ -56,23 +56,34 @@ public class UICtrl : LoboMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadLobbyCtrl", gameObject);
     }
 
+    public void CheckAllPriceInUI()
+    {
+        this.CheckAllPriceInShoppingMenu();
+        this.CheckAllPriceInGamePlayScreen();
+    }
+
     /// <summary>
     /// GameplayScreen
     /// </summary>
 
+    void CheckAllPriceInGamePlayScreen()
+    {
+        //this._gameplayScreen
+    }
+    
     public void ShowLevelScreen(int level)
     {
-        this._gameplayScreen.ShowLevel(level);
+        this._gameplayScreen.TopScreen.LevelText.ShowLevel(level);
     }
 
     public void ShowCoin(int coin)
     {
-        this._gameplayScreen.ShowCoin(coin);
+        this._gameplayScreen.TopScreen.CoinText.ShowCoin(coin);
     }
 
     public void ShowExpSlider(float newValue)
     {
-        this._gameplayScreen.ShowExpSlider(newValue);
+        this._gameplayScreen.TopScreen.LevelExp.ShowExpSlider(newValue);
     }
 
     public void OnEnableGameplayScreen()
@@ -109,7 +120,7 @@ public class UICtrl : LoboMonoBehaviour
         this._shoppingMenu.gameObject.SetActive(true);
     }
 
-    public void CheckPriceAll()
+    void CheckAllPriceInShoppingMenu()
     {
         this._shoppingMenu.CheckPriceAll();
     }    

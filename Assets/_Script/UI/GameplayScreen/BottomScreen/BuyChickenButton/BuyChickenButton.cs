@@ -42,7 +42,7 @@ public class BuyChickenButton : LoboMonoBehaviour
         this._buttonOn.ChickenPriceText.ShowChickenPriceText(chickenPrice);
     }    
 
-    void CheckPrice()
+    public void CheckPrice()
     {
         int playerCoin = ManagerCtrl.Instance.PlayerManager.GetCoin();
         int chickenPrice = this._buttonOn.chickenPrice;

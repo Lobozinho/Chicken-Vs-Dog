@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BottomScreen : MonoBehaviour
+public class BottomScreen : LoboMonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+   
+    [SerializeField] private BuyChickenButton _buyChickenButton;
+    public BuyChickenButton BuyChickenButton => _buyChickenButton;
+
+    protected override void LoadComponents()
     {
-        
+        base.LoadComponents();
+        this.LoadBuyChickenButton();
     }
 
-    // Update is called once per frame
-    void Update()
+    void LoadBuyChickenButton()
     {
-        
+        if (this._buyChickenButton != null) return;
+        this._buyChickenButton = GetComponentInChildren<BuyChickenButton>();
+        Debug.LogWarning(transform.name + ": LoadBuyChickenButton", gameObject);
     }
+
 }

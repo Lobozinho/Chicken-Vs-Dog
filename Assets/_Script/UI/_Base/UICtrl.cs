@@ -68,9 +68,15 @@ public class UICtrl : LoboMonoBehaviour
 
     void CheckAllPriceInGamePlayScreen()
     {
-        //this._gameplayScreen
+        this.CheckPriceBuyChickenButton();
     }
-    
+
+    void CheckPriceBuyChickenButton()
+    {
+        this._gameplayScreen.BottomScreen.BuyChickenButton.CheckPrice();
+    }
+
+
     public void ShowLevelScreen(int level)
     {
         this._gameplayScreen.TopScreen.LevelText.ShowLevel(level);

@@ -22619,9 +22619,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9482959bce6f3594792ffa716e7aeba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelText: {fileID: 0}
-  _coinText: {fileID: 0}
-  _levelExp: {fileID: 0}
+  _levelText: {fileID: 1399572931}
+  _coinText: {fileID: 2022154451}
+  _levelExp: {fileID: 1279600825}
 --- !u!1 &1907308628
 GameObject:
   m_ObjectHideFlags: 0
@@ -25114,6 +25114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ce276c1d7e3fd47b80775fe9eaf2f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buyChickenButton: {fileID: 981204500}
 --- !u!1 &2135633135
 GameObject:
   m_ObjectHideFlags: 0

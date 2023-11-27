@@ -6,7 +6,7 @@ public class EggsButtonOn : BaseButton
 {
     protected override void OnClick()
     {
-        
+        gameObject.SetActive(false);
     }
 
 }

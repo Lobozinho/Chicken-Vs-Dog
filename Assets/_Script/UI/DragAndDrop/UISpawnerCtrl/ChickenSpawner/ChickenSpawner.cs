@@ -9,7 +9,7 @@ public class ChickenSpawner : Spawner
     {
         this._parent = this.GetParent();
         if (this._parent == null) return;
-        Transform prefab = this.RandomPrefab();
+        Transform prefab = this.prefabs[0];
         Vector3 spawnPos = transform.position;
         Transform obj = this.Spawn(prefab, spawnPos, Quaternion.identity);
         obj.gameObject.SetActive(true);

@@ -6741,8 +6741,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 582633983}
+  - component: {fileID: 582633984}
   m_Layer: 5
-  m_Name: Eggs
+  m_Name: EggsCtrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6770,6 +6771,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &582633984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582633982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10288b498f1f4c642961f49b64294c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eggsButtonOn: {fileID: 1907308633}
+  _timer: 0
+  _cooldown: 5
 --- !u!1001 &584497991
 PrefabInstance:
   m_ObjectHideFlags: 0

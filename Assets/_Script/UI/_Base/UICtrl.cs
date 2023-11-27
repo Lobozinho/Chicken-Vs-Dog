@@ -12,6 +12,13 @@ public class UICtrl : LoboMonoBehaviour
     [SerializeField] private ShoppingMenu _shoppingMenu;
     [SerializeField] private UISpawnerCtrl _uiSpawnerCtrl;
     [SerializeField] private LobbyCtrl _lobbyCtrl;
+    public LobbyCtrl LobbyCtrl => _lobbyCtrl;
+
+    [SerializeField] private ChickenSpawner _chickenSpawner;
+    public ChickenSpawner ChickenSpawner => _chickenSpawner;
+
+    [SerializeField] private WaveText _waveText;
+    public WaveText WaveText => _waveText;
 
     protected override void Awake()
     {
@@ -26,6 +33,8 @@ public class UICtrl : LoboMonoBehaviour
         this.LoadShoppingMenu();
         this.LoadUISpawnerCtrl();
         this.LoadLobbyCtrl();
+        this.LoadChickenSpawner();
+        this.LoadWaveText();
     }
 
     void LoadGameplayScreen()
@@ -54,6 +63,20 @@ public class UICtrl : LoboMonoBehaviour
         if (this._lobbyCtrl != null) return;
         this._lobbyCtrl = GetComponentInChildren<LobbyCtrl>();
         Debug.LogWarning(transform.name + ": LoadLobbyCtrl", gameObject);
+    }
+
+    void LoadChickenSpawner()
+    {
+        if (this._chickenSpawner != null) return;
+        this._chickenSpawner = GetComponentInChildren<ChickenSpawner>();
+        Debug.LogWarning(transform.name + ": LoadChickenSpawner", gameObject);
+    }
+
+    void LoadWaveText()
+    {
+        if (this._waveText != null) return;
+        this._waveText = GetComponentInChildren<WaveText>();
+        Debug.LogWarning(transform.name + ": LoadWaveText", gameObject);
     }
 
     public void CheckAllPriceInUI()
@@ -130,23 +153,5 @@ public class UICtrl : LoboMonoBehaviour
     {
         this._shoppingMenu.CheckPriceAll();
     }    
-
-    /// <summary>
-    /// UISpawnerCtrl
-    /// <summary>
-
-    public void ChickenSpawnInLobby()
-    {
-        this._uiSpawnerCtrl.ChickenSpawnInLobby();
-    }
-
-    /// <summary>
-    /// LobbyCtrl
-    /// <summary>
-
-    public Transform CheckLobbyEmpty()
-    {
-        return this._lobbyCtrl.CheckLobbyEmpty();
-    }
 
 }

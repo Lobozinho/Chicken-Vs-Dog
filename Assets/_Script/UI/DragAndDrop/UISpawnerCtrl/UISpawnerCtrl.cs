@@ -6,6 +6,7 @@ public class UISpawnerCtrl : LoboMonoBehaviour
 {
 
     [SerializeField] private ChickenSpawner _chickenSpawner;
+    public ChickenSpawner ChickenSpawner => _chickenSpawner;
 
     protected override void LoadComponents()
     {
@@ -18,11 +19,6 @@ public class UISpawnerCtrl : LoboMonoBehaviour
         if (this._chickenSpawner != null) return;
         this._chickenSpawner = GetComponentInChildren<ChickenSpawner>();
         Debug.LogWarning(transform.name + ": LoadChickenSpawner", gameObject);
-    }
-
-    public void ChickenSpawnInLobby()
-    {
-        this._chickenSpawner.ChickenSpawnInLobby();
     }
 
 }

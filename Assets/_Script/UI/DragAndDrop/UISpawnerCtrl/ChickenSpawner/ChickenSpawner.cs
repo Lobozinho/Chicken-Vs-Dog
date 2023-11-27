@@ -4,26 +4,32 @@ using UnityEngine;
 
 public class ChickenSpawner : Spawner
 {
+
     [SerializeField] private Transform _parent;
-    public void ChickenSpawnInLobby()
+    void ChickenSpawnInLobby(Transform prefab)
     {
-        this._parent = this.GetParent();
+        this._parent = UICtrl.Instance.LobbyCtrl.CheckLobbyEmpty();
         if (this._parent == null) return;
-        Transform prefab = this.prefabs[0];
         Vector3 spawnPos = transform.position;
         Transform obj = this.Spawn(prefab, spawnPos, Quaternion.identity);
         obj.gameObject.SetActive(true);
     }
 
+    public void ChickenZeroSpawnInLobby()
+    {
+        this.ChickenSpawnInLobby(this.prefabs[0]);
+    }
+    
+    public void ChickenSpawnInLobbyFromEgg()
+    {
+        int wave = UICtrl.Instance.WaveText.wave;
+        int prefabNumber = Random.Range(0, wave+1);
+        this.ChickenSpawnInLobby(this.prefabs[prefabNumber]);
+    }
+
     protected override void SetParentNewPrefab(Transform newPrefab)
     {
         newPrefab.SetParent(this._parent, false);
-    }
-
-    Transform GetParent()
-    {
-        Transform parent = UICtrl.Instance.CheckLobbyEmpty();
-        return parent;
     }
 
 }

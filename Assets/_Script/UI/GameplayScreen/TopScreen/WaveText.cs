@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WaveText : BaseText
 {
-    
 
+    [SerializeField] private int _wave = 0;
+    public int wave => _wave;
 
 }

@@ -30,7 +30,7 @@ public class BuyChickenButtonOn : BaseButton
 
     protected override void OnClick()
     {
-        UICtrl.Instance.ChickenSpawnInLobby();
+        UICtrl.Instance.ChickenSpawner.ChickenZeroSpawnInLobby();
         ManagerCtrl.Instance.PlayerManager.DecreaseCoin(this._chickenPrice);
     }
 

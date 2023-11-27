@@ -1141,9 +1141,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameplayScreen: {fileID: 146976810}
-  _shoppingMenu: {fileID: 39762984}
+  _shoppingMenu: {fileID: 0}
   _uiSpawnerCtrl: {fileID: 1284249515}
   _lobbyCtrl: {fileID: 806691180}
+  _chickenSpawner: {fileID: 28549620}
+  _waveText: {fileID: 1528463346}
 --- !u!1 &74997511
 GameObject:
   m_ObjectHideFlags: 0
@@ -18814,6 +18816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1528463344}
+  _wave: 0
 --- !u!1001 &1530612141
 PrefabInstance:
   m_ObjectHideFlags: 0

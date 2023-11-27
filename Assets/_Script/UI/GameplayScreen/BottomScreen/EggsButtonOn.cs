@@ -7,6 +7,7 @@ public class EggsButtonOn : BaseButton
     protected override void OnClick()
     {
         gameObject.SetActive(false);
+        // làm ch?c n?ng spawn chicken 
     }
 
 }

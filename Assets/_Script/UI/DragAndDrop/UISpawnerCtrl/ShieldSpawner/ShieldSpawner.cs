@@ -5,13 +5,12 @@ using UnityEngine;
 public class ShieldSpawner : Spawner
 {
 
-    private void FixedUpdate()
-    {
-        this.ShieldSpawning();
-    }
+    [SerializeField] private Transform _parent;
 
-    void ShieldSpawning()
+    public void ShieldSpawning()
     {
+        this._parent = UICtrl.Instance.LobbyCtrl.CheckLobbyEmpty();
+        if (this._parent == null) return;
         Transform prefab = this.RandomPrefab();
         Vector3 spawnPos = transform.position;
         Transform obj = this.Spawn(prefab, spawnPos, Quaternion.identity);
@@ -20,7 +19,7 @@ public class ShieldSpawner : Spawner
 
     protected override void SetParentNewPrefab(Transform newPrefab)
     {
-        newPrefab.SetParent(this.holder, false);
+        newPrefab.SetParent(this._parent, false);
     }
 
 }

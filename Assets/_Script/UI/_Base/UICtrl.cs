@@ -17,6 +17,9 @@ public class UICtrl : LoboMonoBehaviour
     [SerializeField] private ChickenSpawner _chickenSpawner;
     public ChickenSpawner ChickenSpawner => _chickenSpawner;
 
+    [SerializeField] private ShieldSpawner _shieldSpawner;
+    public ShieldSpawner ShieldSpawner => _shieldSpawner;
+
     [SerializeField] private WaveText _waveText;
     public WaveText WaveText => _waveText;
 
@@ -34,6 +37,7 @@ public class UICtrl : LoboMonoBehaviour
         this.LoadUISpawnerCtrl();
         this.LoadLobbyCtrl();
         this.LoadChickenSpawner();
+        this.LoadShieldSpawner();
         this.LoadWaveText();
     }
 
@@ -70,6 +74,13 @@ public class UICtrl : LoboMonoBehaviour
         if (this._chickenSpawner != null) return;
         this._chickenSpawner = GetComponentInChildren<ChickenSpawner>();
         Debug.LogWarning(transform.name + ": LoadChickenSpawner", gameObject);
+    }
+
+    void LoadShieldSpawner()
+    {
+        if (this._shieldSpawner != null) return;
+        this._shieldSpawner = GetComponentInChildren<ShieldSpawner>();
+        Debug.LogWarning(transform.name + ": LoadShieldSpawner", gameObject);
     }
 
     void LoadWaveText()

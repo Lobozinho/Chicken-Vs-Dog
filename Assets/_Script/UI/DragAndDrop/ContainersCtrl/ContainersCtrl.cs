@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class ContainersCtrl : LoboMonoBehaviour
 {
-    private static ContainersCtrl _instance;
-    public static ContainersCtrl Instance => _instance;
 
-    protected override void Awake()
+    [SerializeField] private LobbyCtrl _lobbyCtrl;
+    public LobbyCtrl LobbyCtrl => _lobbyCtrl;
+
+    protected override void LoadComponents()
     {
-        if (ContainersCtrl._instance != null) Debug.LogError("only 1 ContainersCtrl allow to exist");
-        ContainersCtrl._instance = this;
+        base.LoadComponents();
+        this.LoadLobbyCtrl();
     }
+
+    void LoadLobbyCtrl()
+    {
+        if (this._lobbyCtrl != null) return;
+        this._lobbyCtrl = GetComponentInChildren<LobbyCtrl>();
+        Debug.LogWarning(transform.name + ": LoadLobbyCtrl", gameObject);
+    }
+
 }

@@ -8,11 +8,13 @@ public class UICtrl : LoboMonoBehaviour
     private static UICtrl _instance;
     public static UICtrl Instance => _instance;
 
+    [SerializeField] private DragAndDrop _dragAndDrop;
+    public DragAndDrop DragAndDrop => _dragAndDrop;
+
     [SerializeField] private GameplayScreen _gameplayScreen;
+    public GameplayScreen GameplayScreen => _gameplayScreen;
+
     [SerializeField] private ShoppingMenu _shoppingMenu;
-    [SerializeField] private UISpawnerCtrl _uiSpawnerCtrl;
-    [SerializeField] private LobbyCtrl _lobbyCtrl;
-    public LobbyCtrl LobbyCtrl => _lobbyCtrl;
 
     [SerializeField] private ChickenSpawner _chickenSpawner;
     public ChickenSpawner ChickenSpawner => _chickenSpawner;
@@ -32,13 +34,19 @@ public class UICtrl : LoboMonoBehaviour
     protected override void LoadComponents()
     {
         base.LoadComponents();
+        this.LoadDragAndDrop();
         this.LoadGameplayScreen();
         this.LoadShoppingMenu();
-        this.LoadUISpawnerCtrl();
-        this.LoadLobbyCtrl();
         this.LoadChickenSpawner();
         this.LoadShieldSpawner();
         this.LoadWaveText();
+    }
+
+    void LoadDragAndDrop()
+    {
+        if (this._dragAndDrop != null) return;
+        this._dragAndDrop = GetComponentInChildren<DragAndDrop>();
+        Debug.LogWarning(transform.name + ": LoadDragAndDrop", gameObject);
     }
 
     void LoadGameplayScreen()
@@ -53,20 +61,6 @@ public class UICtrl : LoboMonoBehaviour
         if (this._shoppingMenu != null) return;
         this._shoppingMenu = GetComponentInChildren<ShoppingMenu>();
         Debug.LogWarning(transform.name + ": LoadShoppingMenu", gameObject);
-    }
-
-    void LoadUISpawnerCtrl()
-    {
-        if (this._uiSpawnerCtrl != null) return;
-        this._uiSpawnerCtrl = GetComponentInChildren<UISpawnerCtrl>();
-        Debug.LogWarning(transform.name + ": LoadUISpawnerCtrl", gameObject);
-    }
-
-    void LoadLobbyCtrl()
-    {
-        if (this._lobbyCtrl != null) return;
-        this._lobbyCtrl = GetComponentInChildren<LobbyCtrl>();
-        Debug.LogWarning(transform.name + ": LoadLobbyCtrl", gameObject);
     }
 
     void LoadChickenSpawner()

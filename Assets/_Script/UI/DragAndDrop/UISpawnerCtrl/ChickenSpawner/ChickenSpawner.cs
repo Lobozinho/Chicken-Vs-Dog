@@ -8,7 +8,7 @@ public class ChickenSpawner : Spawner
     [SerializeField] private Transform _parent;
     void ChickenSpawnInLobby(Transform prefab)
     {
-        this._parent = UICtrl.Instance.LobbyCtrl.CheckLobbyEmpty();
+        this._parent = UICtrl.Instance.DragAndDrop.ContainersCtrl.LobbyCtrl.CheckLobbyEmpty();
         if (this._parent == null) return;
         Vector3 spawnPos = transform.position;
         Transform obj = this.Spawn(prefab, spawnPos, Quaternion.identity);

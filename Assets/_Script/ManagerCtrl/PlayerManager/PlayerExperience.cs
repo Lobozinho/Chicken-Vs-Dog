@@ -18,7 +18,7 @@ public class PlayerExperience : BasePlayerManager
     {
         if (this._xp < this._totalExp) return;
         this.CalExpNextLevel();
-        this.playerManager.LevelUp();
+        this.playerManager.PlayerLevel.LevelUp();
     }
 
     public void CalExpNextLevel()

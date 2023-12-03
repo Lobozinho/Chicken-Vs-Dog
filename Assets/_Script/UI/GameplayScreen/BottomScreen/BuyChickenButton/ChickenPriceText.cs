@@ -5,9 +5,12 @@ using UnityEngine;
 public class ChickenPriceText : BaseText
 {
     
-    public void ShowChickenPriceText(int price)
+    [SerializeField] private int _chickenPrice = 1;
+    public int ChickenPrice => _chickenPrice;
+    
+    public void ShowChickenPriceText()
     {
-        this.text.text = price.ToString();
+        this.text.text = this._chickenPrice.ToString();
     }
 
 }

@@ -8,12 +8,15 @@ public class BuyChickenButton : LoboMonoBehaviour
     [Header("Components")]
     [SerializeField] private BuyChickenButtonOff _buttonOff;
     [SerializeField] private BuyChickenButtonOn _buttonOn;
+    [SerializeField] private ChickenPriceText _chickenPriceText;
+    public ChickenPriceText ChickenPriceText => _chickenPriceText;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadBuyChickenButtonOff();
         this.LoadBuyChickenButtonOn();
+        this.LoadChickenPriceText();
     }
 
     void LoadBuyChickenButtonOff()
@@ -30,6 +33,13 @@ public class BuyChickenButton : LoboMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadBuyChickenButtonOn", gameObject);
     }
 
+    void LoadChickenPriceText()
+    {
+        if (this._chickenPriceText != null) return;
+        this._chickenPriceText = GetComponentInChildren<ChickenPriceText>();
+        Debug.LogWarning(transform.name + ": LoadChickenPriceText", gameObject);
+    }
+
     protected override void Awake()
     {
         this.ShowChickenPriceText();
@@ -38,17 +48,16 @@ public class BuyChickenButton : LoboMonoBehaviour
 
     void ShowChickenPriceText()
     {
-        int chickenPrice = this._buttonOn.chickenPrice;
-        this._buttonOn.ChickenPriceText.ShowChickenPriceText(chickenPrice);
+        this._chickenPriceText.ShowChickenPriceText();
     }    
 
     public void CheckPrice()
     {
-        int playerCoin = ManagerCtrl.Instance.PlayerManager.GetCoin();
-        int chickenPrice = this._buttonOn.chickenPrice;
+        int playerCoin = ManagerCtrl.Instance.PlayerManager.PlayerCoin.GetCoin();
+        int chickenPrice = this._chickenPriceText.ChickenPrice;
         if (chickenPrice <= playerCoin) return;
         this._buttonOn.gameObject.SetActive(false);
-        this._buttonOff.ChickenPriceText.ShowChickenPriceText(chickenPrice);
+        //this._buttonOff.ChickenPriceText.ShowChickenPriceText(chickenPrice);
     }    
 
 }

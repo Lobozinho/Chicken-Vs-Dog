@@ -5,33 +5,18 @@ using UnityEngine;
 public class BuyChickenButtonOn : BaseButton
 {
 
-    [SerializeField] private ChickenPriceText _chickenPriceText;
-    public ChickenPriceText ChickenPriceText => _chickenPriceText;
-    
-    [SerializeField] private int _chickenPrice = 1;
-    public int chickenPrice => _chickenPrice;
-
-    [SerializeField] private int _scalePrice = 1;
-    public int scalePrice => _scalePrice;
-
-
-    protected override void LoadComponents()
-    {
-        base.LoadComponents();
-        this.LoadChickenPriceText();
-    }
-
-    void LoadChickenPriceText()
-    {
-        if (this._chickenPriceText != null) return;
-        this._chickenPriceText = GetComponentInChildren<ChickenPriceText>();
-        Debug.LogWarning(transform.name + ": LoadChickenPriceText", gameObject);
-    }
-
     protected override void OnClick()
     {
         UICtrl.Instance.ChickenSpawner.ChickenZeroSpawnInLobby();
-        ManagerCtrl.Instance.PlayerManager.DecreaseCoin(this._chickenPrice);
+        int chickenPrice = this.GetChickenPrice();
+        ManagerCtrl.Instance.PlayerManager.PlayerCoin.DecreaseCoin(chickenPrice);
     }
+
+    int GetChickenPrice()
+    {
+        BottomScreen bottomScreen = UICtrl.Instance.GameplayScreen.BottomScreen;
+        int chickenPrice = bottomScreen.BuyChickenButton.ChickenPriceText.ChickenPrice;
+        return chickenPrice;
+    }    
 
 }

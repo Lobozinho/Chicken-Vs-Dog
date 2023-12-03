@@ -39,14 +39,14 @@ public abstract class BaseShoppingButton : BaseButton
     {
         this.level++;
         this.price += this.scale;
-        ManagerCtrl.Instance.PlayerManager.DecreaseCoin(this.price);
+        ManagerCtrl.Instance.PlayerManager.PlayerCoin.DecreaseCoin(this.price);
         UICtrl.Instance.ShowLevelShoppingMenu(this.index, this.level);
         this.CheckLevel();
     }
 
     void CheckLevel()
     {
-        int levelPlayer = ManagerCtrl.Instance.PlayerManager.GetLevel();
+        int levelPlayer = ManagerCtrl.Instance.PlayerManager.PlayerLevel.GetLevel();
         if (this.level < levelPlayer) return;
         transform.gameObject.SetActive(false);
         this.OnEnableButtonMax();
@@ -54,7 +54,7 @@ public abstract class BaseShoppingButton : BaseButton
 
     public void CheckPrice()
     {
-        int playerCoin = ManagerCtrl.Instance.PlayerManager.GetCoin();
+        int playerCoin = ManagerCtrl.Instance.PlayerManager.PlayerCoin.GetCoin();
         if (this.price < playerCoin) return;
         transform.gameObject.SetActive(false);
         this.OnEnableButtonOff();

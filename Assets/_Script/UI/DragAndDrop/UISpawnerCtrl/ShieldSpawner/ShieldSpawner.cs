@@ -9,7 +9,7 @@ public class ShieldSpawner : Spawner
 
     public void ShieldSpawning()
     {
-        this._parent = UICtrl.Instance.LobbyCtrl.CheckLobbyEmpty();
+        this._parent = UICtrl.Instance.DragAndDrop.ContainersCtrl.LobbyCtrl.CheckLobbyEmpty();
         if (this._parent == null) return;
         Transform prefab = this.RandomPrefab();
         Vector3 spawnPos = transform.position;

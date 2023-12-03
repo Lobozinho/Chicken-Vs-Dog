@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(CanvasGroup))]
 [RequireComponent(typeof(BoxCollider2D))]
 
-public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [Header("Object Drag And Drop")]
     [SerializeField] protected CanvasGroup canvasGroup;
@@ -45,7 +45,8 @@ public class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragH
         this.canvasGroup.alpha = .6f;
         this.canvasGroup.blocksRaycasts = false;
         this.realParent = transform.parent;
-        transform.SetParent(ContainersCtrl.Instance.transform);
+        Transform containersCtrl = UICtrl.Instance.DragAndDrop.ContainersCtrl.transform;
+        transform.SetParent(containersCtrl);
         //this._image.raycastTarget = false;
     }
 

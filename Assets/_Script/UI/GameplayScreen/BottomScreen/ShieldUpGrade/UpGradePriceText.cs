@@ -5,4 +5,9 @@ using UnityEngine;
 public class UpGradePriceText : BaseText
 {
    
+    public void ShowUpGradePrice(int price)
+    {
+        this.text.text = price.ToString();
+    }
+
 }

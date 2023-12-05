@@ -14,7 +14,7 @@ public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, 
     [SerializeField] protected BoxCollider2D boxCollider2D;
 
     [SerializeField] protected Transform realParent;
-    
+
     public void SetRealParent(Transform realParent)
     {
         this.realParent = realParent;
@@ -40,17 +40,16 @@ public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, 
         Debug.LogWarning(transform.name + ": LoadBoxCollider2D", gameObject);
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public virtual void OnBeginDrag(PointerEventData eventData)
     {
         this.canvasGroup.alpha = .6f;
         this.canvasGroup.blocksRaycasts = false;
         this.realParent = transform.parent;
         Transform containersCtrl = UICtrl.Instance.DragAndDrop.ContainersCtrl.transform;
         transform.SetParent(containersCtrl);
-        //this._image.raycastTarget = false;
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public virtual void OnDrag(PointerEventData eventData)
     {
         this.ObjMoveByMouse();
         this.boxCollider2D.enabled = true;
@@ -63,7 +62,7 @@ public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, 
         transform.position = mousePos;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public virtual void OnEndDrag(PointerEventData eventData)
     {
         this.canvasGroup.alpha = 1f;
         this.canvasGroup.blocksRaycasts = true;

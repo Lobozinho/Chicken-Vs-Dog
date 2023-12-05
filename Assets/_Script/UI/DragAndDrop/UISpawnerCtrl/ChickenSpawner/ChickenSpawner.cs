@@ -22,7 +22,7 @@ public class ChickenSpawner : Spawner
     
     public void ChickenSpawnInLobbyFromEgg()
     {
-        int wave = UICtrl.Instance.WaveText.wave;
+        int wave = UICtrl.Instance.GameplayScreen.TopScreen.WaveText.wave;
         int prefabNumber = Random.Range(0, wave+1);
         this.ChickenSpawnInLobby(this.prefabs[prefabNumber]);
     }

@@ -22,12 +22,19 @@ public class EggsButtonOn : BaseButton
 
     void SpawnChicken()
     {
-        UICtrl.Instance.ChickenSpawner.ChickenSpawnInLobbyFromEgg();
+        UISpawnerCtrl uISpawnerCtrl = this.GetUISpawnerCtrl();
+        UICtrl.Instance.DragAndDrop.UISpawnerCtrl.ChickenSpawner.ChickenSpawnInLobbyFromEgg();
     }
 
     void SpawnShield()
     {
-        UICtrl.Instance.ShieldSpawner.ShieldSpawning();
+        UISpawnerCtrl uISpawnerCtrl = this.GetUISpawnerCtrl();
+        uISpawnerCtrl.ShieldSpawner.ShieldSpawning();
     }
+
+    UISpawnerCtrl GetUISpawnerCtrl()
+    {
+        return UICtrl.Instance.DragAndDrop.UISpawnerCtrl;
+    }    
 
 }

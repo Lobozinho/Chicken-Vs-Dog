@@ -14,12 +14,16 @@ public class TopScreen : LoboMonoBehaviour
     [SerializeField] private LevelExp _levelExp;
     public LevelExp LevelExp => _levelExp;
 
+    [SerializeField] private WaveText _waveText;
+    public WaveText WaveText => _waveText;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadLevelText();
         this.LoadCoinText();
         this.LoadLevelExp();
+        this.LoadWaveText();
     }
 
     void LoadLevelText()
@@ -41,6 +45,13 @@ public class TopScreen : LoboMonoBehaviour
         if (this._levelExp != null) return;
         this._levelExp = GetComponentInChildren<LevelExp>();
         Debug.LogWarning(transform.name + ": LoadLevelExp", gameObject);
+    }
+
+    void LoadWaveText()
+    {
+        if (this._waveText != null) return;
+        this._waveText = GetComponentInChildren<WaveText>();
+        Debug.LogWarning(transform.name + ": LoadWaveText", gameObject);
     }
 
 }

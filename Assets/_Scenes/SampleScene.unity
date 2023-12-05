@@ -829,7 +829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &39762983
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1142,8 +1142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dragAndDrop: {fileID: 986524691}
   _gameplayScreen: {fileID: 146976810}
-  _shoppingMenu: {fileID: 0}
-  _lobbyCtrl: {fileID: 806691180}
+  _shoppingMenu: {fileID: 39762984}
   _chickenSpawner: {fileID: 28549620}
   _shieldSpawner: {fileID: 961604284}
   _waveText: {fileID: 1528463346}
@@ -16022,6 +16021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7af135df1ea75047b1ead7f416c0a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lobbyCtrl: {fileID: 0}
 --- !u!1001 &1269771482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16429,6 +16429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chickenSpawner: {fileID: 28549620}
+  _shieldSpawner: {fileID: 961604284}
 --- !u!1 &1293318728
 GameObject:
   m_ObjectHideFlags: 0

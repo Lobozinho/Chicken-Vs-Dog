@@ -9,6 +9,7 @@ public class ShieldPrefabUpgrade : MonoBehaviour
     public void ShieldPrefabUpgrading()
     {
         ShieldUpgrade shieldUpgrade = UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade;
+        shieldUpgrade.ButtonOn.gameObject.SetActive(true);
         shieldUpgrade.PriceText.ShowUpGradePrice(this._upgradePrice);
     }
 

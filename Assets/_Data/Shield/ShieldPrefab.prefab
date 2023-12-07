@@ -49,6 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d9a6d2d14c6a442ace2da73c6e366e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shieldPrefab: {fileID: 809610858942828046}
+  _upgradePrice: 1
+  _scaleUpgradePrice: 1
 --- !u!1 &6340960943524345978
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +150,7 @@ MonoBehaviour:
   hp: 2
   hpMax: 2
   isDead: 0
+  _scaleHP: 1
 --- !u!1 &6539630172596113658
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +335,9 @@ MonoBehaviour:
   realParent: {fileID: 0}
   _shieldModel: {fileID: 1396517088934606726}
   _upgrade: {fileID: 5534928448246791832}
+  _damageReceiver: {fileID: 525354241536119361}
   _isDrag: 0
+  _isSelected: 0
 --- !u!1 &8908901248127283135
 GameObject:
   m_ObjectHideFlags: 0

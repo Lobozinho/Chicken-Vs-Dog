@@ -9,13 +9,21 @@ public class ShieldPrefab : ObjectDragAndDrop
     [Header("Shield Prefab")]
     [SerializeField] private ShieldModel _shieldModel;
     [SerializeField] private ShieldPrefabUpgrade _upgrade;
+    public ShieldPrefabUpgrade Upgrade => _upgrade;
+
+    [SerializeField] private ShieldDamageReceiver _damageReceiver;
+    public ShieldDamageReceiver DamageReceiver => _damageReceiver;
+
     [SerializeField] private bool _isDrag = false;
+    [SerializeField] private bool _isSelected = false;
+    public bool IsSelected => _isSelected;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadShieldModel();
         this.LoadShieldPrefabUpgrade();
+        this.LoadShieldDamageReceiver();
     }
 
     void LoadShieldModel()
@@ -30,6 +38,13 @@ public class ShieldPrefab : ObjectDragAndDrop
         if (this._upgrade != null) return;
         this._upgrade = GetComponentInChildren<ShieldPrefabUpgrade>();
         Debug.LogWarning(transform.name + ": LoadShieldPrefabUpgrade", gameObject);
+    }
+
+    void LoadShieldDamageReceiver()
+    {
+        if (this._damageReceiver != null) return;
+        this._damageReceiver = GetComponentInChildren<ShieldDamageReceiver>();
+        Debug.LogWarning(transform.name + ": LoadShieldDamageReceiver", gameObject);
     }
 
     private void OnEnable()
@@ -69,6 +84,22 @@ public class ShieldPrefab : ObjectDragAndDrop
     private void OnMouseDown()
     {
         this._upgrade.ShieldPrefabUpgrading();
+        this.SetFalseIsSelectedAllShieldPrefab();
+        this._isSelected = true;
+    }
+
+    void SetFalseIsSelectedAllShieldPrefab()
+    {
+        ShieldPrefab[] allShields = FindObjectsOfType<ShieldPrefab>();
+        foreach(ShieldPrefab shield in allShields)
+        {
+            shield.SetFalseIsSelected();   
+        }   
+    }
+    
+    public void SetFalseIsSelected()
+    {
+        this._isSelected = false;
     }
 
 }

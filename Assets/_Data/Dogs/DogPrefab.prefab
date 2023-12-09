@@ -44,9 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37e8c5c99d4407469a0dd5da78489ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dogPrefabCtrl: {fileID: 4076141493731787260}
+  dogKillReward: {fileID: 3637955366287818676}
   expDefault: 10
-  expScale: -1
 --- !u!1 &2288257662131821974
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,8 +358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17aac6fad23e60040947a4042f1cc7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dogKillReward: {fileID: 3637955366287818676}
   _coinDefault: 10
-  _coinScale: 10
 --- !u!1 &5439278090361891704
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638c0262add241944987bf634c261a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dogPrefabCtrl: {fileID: 0}
   _dogSendExp: {fileID: 5774593570228321977}
   _dogSendCoin: {fileID: 5894537978724879364}
   _scale: -1

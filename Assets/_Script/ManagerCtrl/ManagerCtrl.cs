@@ -11,8 +11,8 @@ public class ManagerCtrl : LoboMonoBehaviour
     [SerializeField] private InputManager _inputManager;
     public InputManager InputManager => _inputManager;
 
-    [SerializeField] private SpawnerManager _spawnerManager;
-    public SpawnerManager SpawnerManager => _spawnerManager;
+    [SerializeField] private PlayerPrefsManager _playerPrefs;
+    public PlayerPrefsManager PlayerPrefs => _playerPrefs;
 
     [SerializeField] private PlayerManager _playerManager;
     public PlayerManager PlayerManager => _playerManager;
@@ -27,7 +27,7 @@ public class ManagerCtrl : LoboMonoBehaviour
     {
         base.LoadComponents();
         this.LoadInputManager();
-        this.LoadSpawnerManager();
+        this.LoadPlayerPrefsManager();
         this.LoadPlayerManager();
     }
 
@@ -38,11 +38,11 @@ public class ManagerCtrl : LoboMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadInputManager", gameObject);
     }
 
-    void LoadSpawnerManager()
+    void LoadPlayerPrefsManager()
     {
-        if (this._spawnerManager != null) return;
-        this._spawnerManager = GetComponentInChildren<SpawnerManager>();
-        Debug.LogWarning(transform.name + ": LoadSpawnerManager", gameObject);
+        if (this._playerPrefs != null) return;
+        this._playerPrefs = GetComponentInChildren<PlayerPrefsManager>();
+        Debug.LogWarning(transform.name + ": LoadPlayerPrefsManager", gameObject);
     }
 
     void LoadPlayerManager()

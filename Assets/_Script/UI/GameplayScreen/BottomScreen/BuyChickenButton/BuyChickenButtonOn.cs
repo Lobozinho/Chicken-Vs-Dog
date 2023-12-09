@@ -10,6 +10,7 @@ public class BuyChickenButtonOn : BaseButton
         UICtrl.Instance.DragAndDrop.UISpawnerCtrl.ChickenSpawner.ChickenZeroSpawnInLobby();
         int chickenPrice = this.GetChickenPrice();
         ManagerCtrl.Instance.PlayerManager.PlayerCoin.DecreaseCoin(chickenPrice);
+        UICtrl.Instance.CheckAllPriceInUI();
     }
 
     int GetChickenPrice()

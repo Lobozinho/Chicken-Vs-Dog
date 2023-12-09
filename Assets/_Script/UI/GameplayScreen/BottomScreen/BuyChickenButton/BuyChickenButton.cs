@@ -57,7 +57,6 @@ public class BuyChickenButton : LoboMonoBehaviour
         int chickenPrice = this._chickenPriceText.ChickenPrice;
         if (chickenPrice <= playerCoin) return;
         this._buttonOn.gameObject.SetActive(false);
-        //this._buttonOff.ChickenPriceText.ShowChickenPriceText(chickenPrice);
     }    
 
 }

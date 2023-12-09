@@ -45,7 +45,7 @@ public class ChickenShooting : MonoBehaviour
         if(!this._isStandy) return;
         if (this.CheckDelayTime()) return;
         Vector3 BulletSpawnPos = transform.parent.position;
-        ManagerCtrl.Instance.SpawnerManager.BulletSpawning(BulletSpawnPos);
+        SpawnerCtrl.Instance.BulletSpawner.Spawning(BulletSpawnPos);
     }
 
     bool CheckDelayTime()

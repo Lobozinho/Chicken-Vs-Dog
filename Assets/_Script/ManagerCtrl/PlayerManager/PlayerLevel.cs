@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 public class PlayerLevel : BasePlayerManager
@@ -20,10 +21,8 @@ public class PlayerLevel : BasePlayerManager
     public void LevelUp()
     {
         this._level++;
-        Debug.Log(this._level);
         UICtrl.Instance.GameplayScreen.TopScreen.LevelText.ShowLevel(this._level);
-        //UICtrl.Instance.ShowLevelScreen(this._level);
-        UICtrl.Instance.ShowExpSlider(0);
+        UICtrl.Instance.GameplayScreen.TopScreen.LevelExp.ShowExpSlider(0);
     }    
 
     public int GetLevel()

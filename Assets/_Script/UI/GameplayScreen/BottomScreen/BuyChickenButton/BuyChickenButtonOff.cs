@@ -5,20 +5,20 @@ using UnityEngine;
 public class BuyChickenButtonOff : LoboMonoBehaviour
 {
 
-    //[SerializeField] private ChickenPriceText _chickenPriceText;
-    //public ChickenPriceText ChickenPriceText => _chickenPriceText;
+    [SerializeField] private ChickenPriceTextButtonOff _chickenPriceText;
+    public ChickenPriceTextButtonOff ChickenPriceText=> _chickenPriceText;
 
-    //protected override void LoadComponents()
-    //{
-    //    base.LoadComponents();
-    //    this.LoadChickenPriceText();
-    //}
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        this.LoadChickenPriceTextButtonOff();
+    }
 
-    //void LoadChickenPriceText()
-    //{
-    //    if (this._chickenPriceText != null) return;
-    //    this._chickenPriceText = GetComponentInChildren<ChickenPriceText>();
-    //    Debug.LogWarning(transform.name + ": LoadChickenPriceText", gameObject);
-    //}
+    void LoadChickenPriceTextButtonOff()
+    {
+        if (this._chickenPriceText != null) return;
+        this._chickenPriceText = GetComponentInChildren<ChickenPriceTextButtonOff>();
+        Debug.LogWarning(transform.name + ": LoadChickenPriceTextButtonOff", gameObject);
+    }
 
 }

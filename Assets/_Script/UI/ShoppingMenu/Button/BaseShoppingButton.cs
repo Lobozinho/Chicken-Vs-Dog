@@ -40,7 +40,7 @@ public abstract class BaseShoppingButton : BaseButton
         this.level++;
         this.price += this.scale;
         ManagerCtrl.Instance.PlayerManager.PlayerCoin.DecreaseCoin(this.price);
-        UICtrl.Instance.ShowLevelShoppingMenu(this.index, this.level);
+        UICtrl.Instance.ShoppingMenu.ItemBuyList.ShowLevel(this.index, this.level);
         this.CheckLevel();
     }
 

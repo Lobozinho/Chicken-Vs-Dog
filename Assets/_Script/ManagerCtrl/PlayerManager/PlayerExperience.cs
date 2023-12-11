@@ -36,7 +36,7 @@ public class PlayerExperience : BasePlayerManager
     void ShowExpSlider()
     {
         float value = (float)this._xp / (float)this._totalExp;
-        UICtrl.Instance.ShowExpSlider(value);
+        UICtrl.Instance.GameplayScreen.TopScreen.LevelExp.ShowExpSlider(value);
     }   
 
 }

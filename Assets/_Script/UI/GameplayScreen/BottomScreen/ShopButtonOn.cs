@@ -6,7 +6,7 @@ public class ShopButtonOn : BaseButton
 {
     protected override void OnClick()
     {
-        UICtrl.Instance.OnEnableShoppingMenu();
-        UICtrl.Instance.DisableGameplayScreen();
+        UICtrl.Instance.ShoppingMenu.gameObject.SetActive(true);
+        UICtrl.Instance.GameplayScreen.gameObject.SetActive(false);
     }
 }

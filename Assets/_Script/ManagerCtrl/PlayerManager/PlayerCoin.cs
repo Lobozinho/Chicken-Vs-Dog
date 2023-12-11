@@ -34,7 +34,7 @@ public class PlayerCoin : MonoBehaviour
 
     void ShowCoin()
     {
-        UICtrl.Instance.ShowCoin(this._coin);
+        UICtrl.Instance.GameplayScreen.TopScreen.CoinText.ShowCoin(this._coin);
     }
 
     void SaveCoin()

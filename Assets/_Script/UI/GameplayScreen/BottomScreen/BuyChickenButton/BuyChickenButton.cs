@@ -7,9 +7,11 @@ public class BuyChickenButton : LoboMonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private BuyChickenButtonOff _buttonOff;
+    public BuyChickenButtonOff ButtonOff => _buttonOff;
+
     [SerializeField] private BuyChickenButtonOn _buttonOn;
-    [SerializeField] private ChickenPriceText _chickenPriceText;
-    public ChickenPriceText ChickenPriceText => _chickenPriceText;
+    [SerializeField] private ChickenPriceTextButtonOn _chickenPriceText;
+    public ChickenPriceTextButtonOn ChickenPriceText => _chickenPriceText;
 
     protected override void LoadComponents()
     {
@@ -36,13 +38,13 @@ public class BuyChickenButton : LoboMonoBehaviour
     void LoadChickenPriceText()
     {
         if (this._chickenPriceText != null) return;
-        this._chickenPriceText = GetComponentInChildren<ChickenPriceText>();
+        this._chickenPriceText = GetComponentInChildren<ChickenPriceTextButtonOn>();
         Debug.LogWarning(transform.name + ": LoadChickenPriceText", gameObject);
     }
 
     protected override void Awake()
     {
-        this.ShowChickenPriceText();
+        //this.ShowChickenPriceText();
         this.CheckPrice();
     }
 

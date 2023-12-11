@@ -58,10 +58,6 @@ public class UICtrl : LoboMonoBehaviour
         this.CheckAllPriceInGamePlayScreen();
     }
 
-    /// <summary>
-    /// GameplayScreen
-    /// </summary>
-
     void CheckAllPriceInGamePlayScreen()
     {
         this.CheckPriceBuyChickenButton();
@@ -70,41 +66,6 @@ public class UICtrl : LoboMonoBehaviour
     void CheckPriceBuyChickenButton()
     {
         this._gameplayScreen.BottomScreen.BuyChickenButton.CheckPrice();
-    }
-
-
-    public void ShowLevelScreen(int level)
-    {
-        this._gameplayScreen.TopScreen.LevelText.ShowLevel(level);
-    }
-
-    public void ShowCoin(int coin)
-    {
-        this._gameplayScreen.TopScreen.CoinText.ShowCoin(coin);
-    }
-
-    public void ShowExpSlider(float newValue)
-    {
-        this._gameplayScreen.TopScreen.LevelExp.ShowExpSlider(newValue);
-    }
-
-    public void OnEnableGameplayScreen()
-    {
-        this._gameplayScreen.gameObject.SetActive(true);
-    }
-
-    public void DisableGameplayScreen()
-    {
-        this._gameplayScreen.gameObject.SetActive(false);
-    }
-
-    /// <summary>
-    /// ShoppingMenu
-    /// </summary>
-
-    public void ShowLevelShoppingMenu(int index, int level)
-    {
-        this._shoppingMenu.ItemBuyList.ShowLevel(index, level);
     }
 
     public void OnEnableButtonOff(int index)

@@ -19,6 +19,12 @@ public class ShieldPrefabUpgrade : BaseShieldPrefab
         this.shieldPrefab.DamageReceiver.UpgradeHp();
         this._upgradePrice += this._scaleUpgradePrice;
         this._scaleUpgradePrice += 1;
+        this.ShowUpgradePrice();
+    }
+
+    void ShowUpgradePrice()
+    {
+        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade.ButtonOn.UpGradePriceText.ShowUpGradePrice(this._upgradePrice);
     }
 
 }

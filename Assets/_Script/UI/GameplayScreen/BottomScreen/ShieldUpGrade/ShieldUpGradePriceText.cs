@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpGradePriceText : BaseText
+public class ShieldUpGradePriceText : BaseText
 {
    
     public void ShowUpGradePrice(int price)

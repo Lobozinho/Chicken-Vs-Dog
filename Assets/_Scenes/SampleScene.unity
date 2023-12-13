@@ -16005,6 +16005,10 @@ PrefabInstance:
       propertyPath: _shieldModel
       value: 
       objectReference: {fileID: 1264753001}
+    - target: {fileID: 5534928448246791832, guid: 51067bed71b36a04f8beca0fd67f7776, type: 3}
+      propertyPath: _upgradePrice
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6539630172596113658, guid: 51067bed71b36a04f8beca0fd67f7776, type: 3}
       propertyPath: m_Name
       value: ShieldPrefab_1
@@ -25301,7 +25305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09581716789fc0b4d826024b68da9a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseWorldPos: {x: 0, y: 0, z: 0}
+  _mouseWorldPos: {x: 0, y: 0, z: 0}
+  _isMouseDown: 0
 --- !u!1001 &2138319493
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -44,10 +44,8 @@ public class ShieldUpGradeButtonOn : BaseButton
         RaycastHit hit;
         if (Physics.Raycast(mouseRay, out hit))
         {
-            Debug.Log("mouse Ray");
         }
 
-        Debug.Log("Check Click Shield");
     }    
 
 }

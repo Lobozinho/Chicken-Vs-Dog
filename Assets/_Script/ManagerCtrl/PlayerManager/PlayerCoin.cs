@@ -6,6 +6,7 @@ public class PlayerCoin : MonoBehaviour
 {
 
     [SerializeField] private int _coin = 10;
+    public int Coin => _coin;
 
     private void Awake()
     {

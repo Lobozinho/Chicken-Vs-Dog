@@ -12,19 +12,17 @@ public class ShieldPrefabUpgrade : BaseShieldPrefab
         ShieldUpgrade shieldUpgrade = UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade;
         if(this.CheckEnoughMoney())
         {
-            Debug.Log("Can up");
-            // neu du  se cho hien cai button on
-            // hien gia trong cai button on
+            ShieldUpGradeButtonOn buttonOn = shieldUpgrade.ButtonOn;
+            buttonOn.gameObject.SetActive(true);
+            buttonOn.UpGradePriceText.ShowUpGradePrice(this._upgradePrice);
         }
         else
         {
-            Debug.Log("Can't Up");
-            // minh se cho hien button off
-            // va phai hien luon gia upgrade
+            ShieldUpGradeButtonOff buttonOff = shieldUpgrade.ButtonOff;
+            buttonOff.gameObject.SetActive(true);
+            shieldUpgrade.ButtonOn.gameObject.SetActive(false);
+            buttonOff.UpGradePriceText.ShowUpGradePrice(this._upgradePrice);
         }
-
-        //shieldUpgrade.ButtonOn.gameObject.SetActive(true);
-        //shieldUpgrade.PriceText.ShowUpGradePrice(this._upgradePrice);
     }
 
     bool CheckEnoughMoney()

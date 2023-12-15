@@ -41,12 +41,10 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler
         this.ChangeAlphaImage(this.alphaEndDrop);
     }
 
-    protected virtual void ChangeColorImage(GameObject collision)
-    {
-        if (transform.childCount > 0) return;
-        if (collision.CompareTag(SHIELD_TAG)) this.ChangeRedImage();
-        else if (collision.CompareTag(CHICKENS_TAG)) this.ChangeWhiteImage();
-    }
+    protected abstract void ChangeColorImage(GameObject collision);
+    //if (transform.childCount > 0) return;
+    //if (collision.CompareTag(SHIELD_TAG)) this.ChangeRedImage();
+    //else if (collision.CompareTag(CHICKENS_TAG)) this.ChangeWhiteImage();
 
     protected virtual void ChangeRedImage()
     {
@@ -60,18 +58,16 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler
         this.image.color = whiteColor;
     }
 
-    protected virtual void SetRealParent(GameObject dropObj)
-    {
-        if (!this.CheckPrefab(dropObj)) return;
-        ObjectDragAndDrop objectDragAndDrop = dropObj.GetComponent<ObjectDragAndDrop>();
-        objectDragAndDrop.SetRealParent(transform);
-    }
+    protected abstract void SetRealParent(GameObject dropObj);
+    //if (!this.CheckPrefab(dropObj)) return;
+    //ObjectDragAndDrop objectDragAndDrop = dropObj.GetComponent<ObjectDragAndDrop>();
+    //objectDragAndDrop.SetRealParent(transform);
 
-    protected virtual bool CheckPrefab(GameObject dropObj)
-    {
-        if (dropObj.CompareTag(CHICKENS_TAG)) return true;
-        return false;
-    }
+    //protected virtual bool CheckPrefab(GameObject dropObj)
+    //{
+    //    if (dropObj.CompareTag(CHICKENS_TAG)) return true;
+    //    return false;
+    //}
 
     void SetIsStandy(GameObject dropObj)
     {

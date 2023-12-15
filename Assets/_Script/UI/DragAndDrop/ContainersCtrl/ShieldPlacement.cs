@@ -11,11 +11,16 @@ public class ShieldPlacement : ContainersDragAndDrop
         else if (collision.CompareTag(CHICKENS_TAG)) this.ChangeRedImage();
     }
 
-    protected override bool CheckPrefab(GameObject dropObj)
+    protected override void SetRealParent(GameObject dropObj)
     {
-        if (dropObj.CompareTag(SHIELD_TAG)) return true;
-        return false;
+
     }
+
+    //protected override bool CheckPrefab(GameObject dropObj)
+    //{
+    //    if (dropObj.CompareTag(SHIELD_TAG)) return true;
+    //    return false;
+    //}
 
     protected override void ResetValue()
     {
@@ -23,4 +28,5 @@ public class ShieldPlacement : ContainersDragAndDrop
         this.isStandy = false;
     }
 
+    
 }

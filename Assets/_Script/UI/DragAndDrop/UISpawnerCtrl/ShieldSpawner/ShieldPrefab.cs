@@ -18,6 +18,9 @@ public class ShieldPrefab : ObjectDragAndDrop
     [SerializeField] private bool _isSelected = false;
     public bool IsSelected => _isSelected;
 
+    // fix lai cho khien di chuyen thoai mai trong lobby
+    // khi di chuyen thi no se hien sang cai o do nhu chicken prefab
+
     protected override void LoadComponents()
     {
         base.LoadComponents();

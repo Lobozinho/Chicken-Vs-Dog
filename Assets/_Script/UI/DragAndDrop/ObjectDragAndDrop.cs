@@ -49,6 +49,8 @@ public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, 
         transform.SetParent(containersCtrl);
     }
 
+    // on being drag => on drag => on drop => on end drag
+
     public virtual void OnDrag(PointerEventData eventData)
     {
         this.ObjMoveByMouse();

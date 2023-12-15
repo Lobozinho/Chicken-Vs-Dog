@@ -8,14 +8,14 @@ public class ShieldUpgrade : LoboMonoBehaviour
     [SerializeField] private ShieldUpGradeButtonOn _buttonOn;
     public ShieldUpGradeButtonOn ButtonOn => _buttonOn;
 
-    [SerializeField] private ShieldUpGradePriceText _priceText;
-    public ShieldUpGradePriceText PriceText => _priceText;
+    [SerializeField] private ShieldUpGradeButtonOff _buttonOff;
+    public ShieldUpGradeButtonOff ButtonOff => _buttonOff;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadShieldUpGradeButtonOn();
-        this.LoadUpGradePriceText();
+        this.LoadShieldUpGradeButtonOff();
     }
 
     void LoadShieldUpGradeButtonOn()
@@ -25,11 +25,11 @@ public class ShieldUpgrade : LoboMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadShieldUpGradeButtonOn", gameObject);
     }
 
-    void LoadUpGradePriceText()
+    void LoadShieldUpGradeButtonOff()
     {
-        if (this._priceText != null) return;
-        this._priceText = GetComponentInChildren<ShieldUpGradePriceText>();
-        Debug.LogWarning(transform.name + ": LoadUpGradePriceText", gameObject);
+        if (this._buttonOff != null) return;
+        this._buttonOff = GetComponentInChildren<ShieldUpGradeButtonOff>();
+        Debug.LogWarning(transform.name + ": LoadShieldUpGradeButtonOff", gameObject);
     }
 
 }

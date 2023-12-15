@@ -30,4 +30,13 @@ public class Standy : ContainersDragAndDrop
         chickenShooting.SetIndexStandy(indexStandy);
     }
 
+    protected override void ChangeColorImage(GameObject collision)
+    {
+
+    }
+
+    protected override void SetRealParent(GameObject dropObj)
+    {
+
+    }
 }

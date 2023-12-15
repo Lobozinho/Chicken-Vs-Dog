@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Chicken : ObjectDragAndDrop
+public class ChickenPrefab : ObjectDragAndDrop
 {
     [Header("Chicken")]
     [SerializeField] private ChickenShooting _chickenShooting;

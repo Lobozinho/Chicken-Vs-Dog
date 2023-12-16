@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class ShieldPrefab : ObjectDragAndDrop
 {
     [Header("Shield Prefab")]
+    [SerializeField] const string SHIELD = "Shield";
     [SerializeField] private ShieldModel _shieldModel;
     [SerializeField] private ShieldPrefabUpgrade _upgrade;
     public ShieldPrefabUpgrade Upgrade => _upgrade;
@@ -14,12 +15,15 @@ public class ShieldPrefab : ObjectDragAndDrop
     [SerializeField] private ShieldDamageReceiver _damageReceiver;
     public ShieldDamageReceiver DamageReceiver => _damageReceiver;
 
-    [SerializeField] private bool _isDrag = false;
     [SerializeField] private bool _isSelected = false;
     public bool IsSelected => _isSelected;
 
-    // fix lai cho khien di chuyen thoai mai trong lobby
-    // khi di chuyen thi no se hien sang cai o do nhu chicken prefab
+    protected override void CheckIsCanDrag()
+    {
+        string parentName = transform.parent.name;
+        if (parentName.Substring(0, Math.Min(6, parentName.Length)) != SHIELD) return;
+        this.isCanDrag = false;
+    }
 
     protected override void LoadComponents()
     {
@@ -50,39 +54,39 @@ public class ShieldPrefab : ObjectDragAndDrop
         Debug.LogWarning(transform.name + ": LoadShieldDamageReceiver", gameObject);
     }
 
-    private void OnEnable()
-    {
-        this._isDrag = false;
-        string parentName = transform.parent.name;
-        if (parentName.Substring(0, Math.Min(5, parentName.Length)) != "Lobby") return;
-        this._shieldModel.gameObject.transform.localPosition = new Vector3(0, 10, 0); 
-    }
+    //private void OnEnable()
+    //{
+    //    this._isDrag = false;
+    //    string parentName = transform.parent.name;
+    //    if (parentName.Substring(0, Math.Min(5, parentName.Length)) != "Lobby") return;
+    //    this._shieldModel.gameObject.transform.localPosition = new Vector3(0, 10, 0); 
+    //}
 
-    public override void OnDrag(PointerEventData eventData)
-    {
-        if (this._isDrag) return;
-        base.OnDrag(eventData);
-    }
+    //public override void OnDrag(PointerEventData eventData)
+    //{
+    //    if (this._isDrag) return;
+    //    base.OnDrag(eventData);
+    //}
 
-    public override void OnBeginDrag(PointerEventData eventData)
-    {
-        if (this._isDrag) return;
-        base.OnBeginDrag(eventData);
-    }
+    //public override void OnBeginDrag(PointerEventData eventData)
+    //{
+    //    if (this._isDrag) return;
+    //    base.OnBeginDrag(eventData);
+    //}
 
-    public override void OnEndDrag(PointerEventData eventData)
-    {
-        if (this._isDrag) return;
-        base.OnEndDrag(eventData);
-        this.CheckShieldPlacement();
-    }
+    //public override void OnEndDrag(PointerEventData eventData)
+    //{
+    //    if (this._isDrag) return;
+    //    base.OnEndDrag(eventData);
+    //    this.CheckShieldPlacement();
+    //}
 
-    void CheckShieldPlacement()
-    {
-        string parentName = transform.parent.name;
-        if (parentName.Substring(0, Math.Min(6, parentName.Length)) != "Shield") return;
-        this._isDrag = true;
-    }
+    //void CheckShieldPlacement()
+    //{
+    //    string parentName = transform.parent.name;
+    //    if (parentName.Substring(0, Math.Min(6, parentName.Length)) != "Shield") return;
+    //    this._isDrag = true;
+    //}
 
     private void OnMouseDown()
     {
@@ -105,4 +109,5 @@ public class ShieldPrefab : ObjectDragAndDrop
         this._isSelected = false;
     }
 
+    
 }

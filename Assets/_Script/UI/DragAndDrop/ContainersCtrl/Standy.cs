@@ -7,12 +7,6 @@ using UnityEngine.TextCore.Text;
 public class Standy : ContainersDragAndDrop
 {
 
-    protected override void ResetValue()
-    {
-        base.ResetValue();
-        this.isStandy = true;
-    }
-
     public override void OnDrop(PointerEventData eventData)
     {
         base.OnDrop(eventData);
@@ -32,11 +26,14 @@ public class Standy : ContainersDragAndDrop
 
     protected override void ChangeColorImage(GameObject collision)
     {
-
+        if(collision.CompareTag(CHICKENS_TAG)) this.ChangeWhiteImage();
+        if(collision.CompareTag(SHIELD_TAG)) this.ChangeRedImage();
     }
 
     protected override void SetRealParent(GameObject dropObj)
     {
-
+        if (dropObj.CompareTag(SHIELD_TAG)) return;
+        ChickenPrefab chickenPrefab = dropObj.GetComponent<ChickenPrefab>();
+        chickenPrefab.SetRealParent(transform);
     }
 }

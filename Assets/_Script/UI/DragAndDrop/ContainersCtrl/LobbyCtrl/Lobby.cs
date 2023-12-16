@@ -7,12 +7,6 @@ using UnityEngine.EventSystems;
 public class Lobby : ContainersDragAndDrop
 {
     
-    protected override void ResetValue()
-    {
-        base.ResetValue();
-        this.isStandy = false;
-    }
-
     protected override void ChangeColorImage(GameObject collision)
     {
         if (transform.childCount > 0) return;

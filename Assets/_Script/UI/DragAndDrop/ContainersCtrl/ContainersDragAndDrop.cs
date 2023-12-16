@@ -15,8 +15,6 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler
     [SerializeField] protected float alphaDropping = 0.5f;
     [SerializeField] protected float alphaEndDrop = 0;
 
-    [SerializeField] protected bool isStandy;
-
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -33,18 +31,12 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler
     public virtual void OnDrop(PointerEventData eventData)
     {
         if (transform.childCount > 0) return;
-
         GameObject dropObj = eventData.pointerDrag;
-        
         this.SetRealParent(dropObj);
-        this.SetIsStandy(dropObj);
         this.ChangeAlphaImage(this.alphaEndDrop);
     }
 
     protected abstract void ChangeColorImage(GameObject collision);
-    //if (transform.childCount > 0) return;
-    //if (collision.CompareTag(SHIELD_TAG)) this.ChangeRedImage();
-    //else if (collision.CompareTag(CHICKENS_TAG)) this.ChangeWhiteImage();
 
     protected virtual void ChangeRedImage()
     {
@@ -59,22 +51,6 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler
     }
 
     protected abstract void SetRealParent(GameObject dropObj);
-    //if (!this.CheckPrefab(dropObj)) return;
-    //ObjectDragAndDrop objectDragAndDrop = dropObj.GetComponent<ObjectDragAndDrop>();
-    //objectDragAndDrop.SetRealParent(transform);
-
-    //protected virtual bool CheckPrefab(GameObject dropObj)
-    //{
-    //    if (dropObj.CompareTag(CHICKENS_TAG)) return true;
-    //    return false;
-    //}
-
-    void SetIsStandy(GameObject dropObj)
-    {
-        if (!dropObj.CompareTag(CHICKENS_TAG)) return;
-        ChickenShooting chickenShooting = dropObj.GetComponentInChildren<ChickenShooting>();
-        chickenShooting.SetIsStandy(this.isStandy);
-    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {

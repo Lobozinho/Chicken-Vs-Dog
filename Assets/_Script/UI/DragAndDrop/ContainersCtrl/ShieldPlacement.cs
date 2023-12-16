@@ -13,20 +13,10 @@ public class ShieldPlacement : ContainersDragAndDrop
 
     protected override void SetRealParent(GameObject dropObj)
     {
-
+        if (dropObj.CompareTag(CHICKENS_TAG)) return;
+        ShieldPrefab shieldPrefab = dropObj.GetComponent<ShieldPrefab>();
+        shieldPrefab.SetRealParent(transform);
+        //shieldPrefab.SetIsDrag(true);
     }
 
-    //protected override bool CheckPrefab(GameObject dropObj)
-    //{
-    //    if (dropObj.CompareTag(SHIELD_TAG)) return true;
-    //    return false;
-    //}
-
-    protected override void ResetValue()
-    {
-        base.ResetValue();
-        this.isStandy = false;
-    }
-
-    
 }

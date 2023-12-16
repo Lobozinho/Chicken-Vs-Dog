@@ -12,10 +12,11 @@ public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, 
     [Header("Object Drag And Drop")]
     [SerializeField] protected CanvasGroup canvasGroup;
     [SerializeField] protected BoxCollider2D boxCollider2D;
-
     [SerializeField] protected Transform realParent;
+    [SerializeField] protected bool isCanDrag = true;
 
     public void SetRealParent(Transform realParent)
+
     {
         this.realParent = realParent;
     }
@@ -42,6 +43,7 @@ public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, 
 
     public virtual void OnBeginDrag(PointerEventData eventData)
     {
+        if(!this.isCanDrag) return;
         this.canvasGroup.alpha = .6f;
         this.canvasGroup.blocksRaycasts = false;
         this.realParent = transform.parent;
@@ -53,6 +55,7 @@ public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, 
 
     public virtual void OnDrag(PointerEventData eventData)
     {
+        if (!this.isCanDrag) return;
         this.ObjMoveByMouse();
         this.boxCollider2D.enabled = true;
     }
@@ -66,10 +69,14 @@ public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, 
 
     public virtual void OnEndDrag(PointerEventData eventData)
     {
+        if (!this.isCanDrag) return;
         this.canvasGroup.alpha = 1f;
         this.canvasGroup.blocksRaycasts = true;
         transform.SetParent(this.realParent);
+        this.CheckIsCanDrag();
     }
+
+    protected abstract void CheckIsCanDrag();
 
     Vector3 GetMousePos()
     {

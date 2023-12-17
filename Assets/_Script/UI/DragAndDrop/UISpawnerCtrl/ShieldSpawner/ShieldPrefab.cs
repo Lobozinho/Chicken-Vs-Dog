@@ -54,40 +54,6 @@ public class ShieldPrefab : ObjectDragAndDrop
         Debug.LogWarning(transform.name + ": LoadShieldDamageReceiver", gameObject);
     }
 
-    //private void OnEnable()
-    //{
-    //    this._isDrag = false;
-    //    string parentName = transform.parent.name;
-    //    if (parentName.Substring(0, Math.Min(5, parentName.Length)) != "Lobby") return;
-    //    this._shieldModel.gameObject.transform.localPosition = new Vector3(0, 10, 0); 
-    //}
-
-    //public override void OnDrag(PointerEventData eventData)
-    //{
-    //    if (this._isDrag) return;
-    //    base.OnDrag(eventData);
-    //}
-
-    //public override void OnBeginDrag(PointerEventData eventData)
-    //{
-    //    if (this._isDrag) return;
-    //    base.OnBeginDrag(eventData);
-    //}
-
-    //public override void OnEndDrag(PointerEventData eventData)
-    //{
-    //    if (this._isDrag) return;
-    //    base.OnEndDrag(eventData);
-    //    this.CheckShieldPlacement();
-    //}
-
-    //void CheckShieldPlacement()
-    //{
-    //    string parentName = transform.parent.name;
-    //    if (parentName.Substring(0, Math.Min(6, parentName.Length)) != "Shield") return;
-    //    this._isDrag = true;
-    //}
-
     private void OnMouseDown()
     {
         this._upgrade.ShieldPrefabUpgrading();

@@ -8921,6 +8921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _upGradePriceText: {fileID: 1527977762}
+  _coin: {fileID: 1337392872}
 --- !u!1 &738694990
 GameObject:
   m_ObjectHideFlags: 0
@@ -16090,7 +16091,7 @@ PrefabInstance:
       objectReference: {fileID: 1264753001}
     - target: {fileID: 5534928448246791832, guid: 51067bed71b36a04f8beca0fd67f7776, type: 3}
       propertyPath: _upgradePrice
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6539630172596113658, guid: 51067bed71b36a04f8beca0fd67f7776, type: 3}
       propertyPath: m_Name
@@ -17427,7 +17428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1337392873}
   m_Layer: 5
-  m_Name: Coin_1
+  m_Name: ButtonOffCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,6 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ShieldUpGradeButtonOn : BaseButton
 {
@@ -22,11 +24,6 @@ public class ShieldUpGradeButtonOn : BaseButton
         Debug.LogWarning(transform.name + ": LoadShieldUpGradePriceText", gameObject);
     }
 
-    private void FixedUpdate()
-    {
-        this.CheckClickShield();
-    }
-
     protected override void OnClick()
     {
         ShieldPrefab[] allShields = FindObjectsOfType<ShieldPrefab>();
@@ -36,16 +33,5 @@ public class ShieldUpGradeButtonOn : BaseButton
             shield.Upgrade.ShieldUpgraded();
         }
     }
-
-    void CheckClickShield()
-    {
-        if (!ManagerCtrl.Instance.InputManager.IsMouseDown) return;
-        Ray mouseRay = ManagerCtrl.Instance.InputManager.MouseRay;
-        RaycastHit hit;
-        if (Physics.Raycast(mouseRay, out hit))
-        {
-        }
-
-    }    
 
 }

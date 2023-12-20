@@ -333,10 +333,10 @@ MonoBehaviour:
   canvasGroup: {fileID: 8245479174345330044}
   boxCollider2D: {fileID: 8534780643731034736}
   realParent: {fileID: 0}
+  isCanDrag: 1
   _shieldModel: {fileID: 1396517088934606726}
   _upgrade: {fileID: 5534928448246791832}
   _damageReceiver: {fileID: 525354241536119361}
-  _isDrag: 0
   _isSelected: 0
 --- !u!1 &8908901248127283135
 GameObject:

@@ -70,7 +70,6 @@ public class ShieldPrefab : ObjectDragAndDrop, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log(transform.parent.gameObject.name);
         this._upgrade.ShieldPrefabUpgrading();
         this.SetFalseIsSelectedAllShieldPrefab();
         this._isSelected = true;

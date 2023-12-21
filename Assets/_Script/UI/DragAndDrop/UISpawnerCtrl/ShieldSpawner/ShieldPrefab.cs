@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ShieldPrefab : ObjectDragAndDrop
+public class ShieldPrefab : ObjectDragAndDrop, IPointerClickHandler
 {
     [Header("Shield Prefab")]
     [SerializeField] const string SHIELD = "Shield";
@@ -54,14 +54,7 @@ public class ShieldPrefab : ObjectDragAndDrop
         Debug.LogWarning(transform.name + ": LoadShieldDamageReceiver", gameObject);
     }
 
-    private void OnMouseDown()
-    {
-        this._upgrade.ShieldPrefabUpgrading();
-        this.SetFalseIsSelectedAllShieldPrefab();
-        this._isSelected = true;
-    }
-
-    void SetFalseIsSelectedAllShieldPrefab()
+    public void SetFalseIsSelectedAllShieldPrefab()
     {
         ShieldPrefab[] allShields = FindObjectsOfType<ShieldPrefab>();
         foreach(ShieldPrefab shield in allShields)
@@ -75,5 +68,11 @@ public class ShieldPrefab : ObjectDragAndDrop
         this._isSelected = false;
     }
 
-    
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log(transform.parent.gameObject.name);
+        this._upgrade.ShieldPrefabUpgrading();
+        this.SetFalseIsSelectedAllShieldPrefab();
+        this._isSelected = true;
+    }
 }

@@ -13,7 +13,8 @@ public class ShieldPrefabUpgrade : BaseShieldPrefab
         if(this.CheckEnoughMoney())
         {
             ShieldUpGradeButtonOn buttonOn = shieldUpgrade.ButtonOn;
-            buttonOn.gameObject.SetActive(true);
+            ShieldUpGradeButtonOff buttonOff = shieldUpgrade.ButtonOff;
+            buttonOff.gameObject.SetActive(false);
             buttonOn.UpGradePriceText.ShowUpGradePrice(this._upgradePrice);
         }
         else
@@ -21,7 +22,6 @@ public class ShieldPrefabUpgrade : BaseShieldPrefab
             ShieldUpGradeButtonOff buttonOff = shieldUpgrade.ButtonOff;
             buttonOff.gameObject.SetActive(true);
             buttonOff.Coin.SetActive(true);
-            shieldUpgrade.ButtonOn.gameObject.SetActive(false);
             buttonOff.UpGradePriceText.ShowUpGradePrice(this._upgradePrice);
         }
     }

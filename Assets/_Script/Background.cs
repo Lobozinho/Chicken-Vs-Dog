@@ -16,38 +16,22 @@ public class Background : MonoBehaviour
             if (clickedObject == null)
             {
                 Debug.Log("clickedObject null");
-                //this.SetFalseIsSelectedAllShieldPrefab();
-                //this.DisableShieldUpgradeButton();
+                this.DontUpgradeShield();
                 return;
             }    
             Button clickedButton = clickedObject.GetComponent<Button>();
-            if (clickedButton != null)
-            {
-                Debug.Log("Clicked on a UI Button!");
-            }
-            else
-            {
-                Debug.Log("Clicked on a UI Element, but not a Button.");
-            }
-        }    
-        //this.SetFalseIsSelectedAllShieldPrefab();
-        //this.DisableShieldUpgradeButton();
+            if (clickedButton != null && clickedButton.gameObject.name == "ShieldUpGradeButtonOn") return;
+        }
+        this.DontUpgradeShield();
     }
 
-    bool CheckIsclickShieldUpgradeButton()
+    private void DontUpgradeShield()
     {
-        ShieldUpGradeButtonOn buttonOn = this.GetShieldUpGradeButton();
-        bool isClick = buttonOn.IsClick;
-        if (isClick) return true;
-        return false;
-    }
+        this.SetFalseIsSelectedAllShieldPrefab();
+        this.OnEnableShieldUpgradeButtonOff();
+    }    
 
-    ShieldUpGradeButtonOn GetShieldUpGradeButton()
-    {
-        return UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade.ButtonOn;
-    }
-
-    void SetFalseIsSelectedAllShieldPrefab()
+    private void SetFalseIsSelectedAllShieldPrefab()
     {
         ShieldPrefab[] allShields = FindObjectsOfType<ShieldPrefab>();
         foreach (ShieldPrefab shield in allShields)
@@ -56,9 +40,9 @@ public class Background : MonoBehaviour
         }
     }    
 
-    void DisableShieldUpgradeButton()
+    private void OnEnableShieldUpgradeButtonOff()
     {
-        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade.ButtonOn.gameObject.SetActive(false);
+        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade.ButtonOff.gameObject.SetActive(true);
     }
 
 }

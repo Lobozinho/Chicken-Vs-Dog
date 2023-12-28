@@ -5,23 +5,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Background : MonoBehaviour
+public class Background : MonoBehaviour, IPointerClickHandler
 {
 
-    private void OnMouseDown()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            GameObject clickedObject = EventSystem.current.currentSelectedGameObject;
-            if (clickedObject == null)
-            {
-                Debug.Log("clickedObject null");
-                this.DontUpgradeShield();
-                return;
-            }    
-            Button clickedButton = clickedObject.GetComponent<Button>();
-            if (clickedButton != null && clickedButton.gameObject.name == "ShieldUpGradeButtonOn") return;
-        }
         this.DontUpgradeShield();
     }
 
@@ -45,4 +33,5 @@ public class Background : MonoBehaviour
         UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade.ButtonOff.gameObject.SetActive(true);
     }
 
+    
 }

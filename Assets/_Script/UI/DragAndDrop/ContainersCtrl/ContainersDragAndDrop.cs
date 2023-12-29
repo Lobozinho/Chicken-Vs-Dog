@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler
+public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler, IPointerClickHandler
 {
     [Header("ContainersDragAndDrop")]
     [SerializeField] protected const string CHICKENS_TAG = "Chickens";
@@ -74,4 +74,9 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler
         image.color = imageColor;
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log("DontUpgradeShield");
+        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade.DontUpgradeShield();
+    }
 }

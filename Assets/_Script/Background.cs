@@ -10,28 +10,8 @@ public class Background : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        this.DontUpgradeShield();
+        Debug.Log("DontUpgradeShield");
+        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade.DontUpgradeShield();
     }
 
-    private void DontUpgradeShield()
-    {
-        this.SetFalseIsSelectedAllShieldPrefab();
-        this.OnEnableShieldUpgradeButtonOff();
-    }    
-
-    private void SetFalseIsSelectedAllShieldPrefab()
-    {
-        ShieldPrefab[] allShields = FindObjectsOfType<ShieldPrefab>();
-        foreach (ShieldPrefab shield in allShields)
-        {
-            shield.SetFalseIsSelected();
-        }
-    }    
-
-    private void OnEnableShieldUpgradeButtonOff()
-    {
-        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade.ButtonOff.gameObject.SetActive(true);
-    }
-
-    
 }

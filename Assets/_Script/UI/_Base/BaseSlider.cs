@@ -11,6 +11,7 @@ public abstract class BaseSlider : LoboMonoBehaviour
     protected virtual void Start()
     {
         this.AddOnClickEvent();
+        this.DisableSliderInteraction();
     }
 
     protected override void LoadComponents()
@@ -32,4 +33,13 @@ public abstract class BaseSlider : LoboMonoBehaviour
     }
 
     protected abstract void OnChanged(float newValue);
+
+    protected virtual void DisableSliderInteraction()
+    {
+        if (this.slider != null)
+        {
+            this.slider.interactable = false;
+        }
+    }
+
 }

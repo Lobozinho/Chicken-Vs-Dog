@@ -11,11 +11,17 @@ public class PlayerLevel : BasePlayerManager
     private void Start()
     {
         this.LoadLevel();
+        this.ShowLevel();
     }
 
     void LoadLevel()
     {
             
+    }    
+
+    void ShowLevel()
+    {
+        UICtrl.Instance.GameplayScreen.TopScreen.LevelText.ShowLevel(this._level);
     }    
 
     public void LevelUp()

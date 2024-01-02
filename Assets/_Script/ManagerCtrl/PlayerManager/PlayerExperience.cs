@@ -9,6 +9,11 @@ public class PlayerExperience : BasePlayerManager
     private int _expToNextLevel = 0;
     [SerializeField] private int _xp = 0;
 
+    private void Start()
+    {
+        this.ShowExpSlider();
+    }
+
     private void FixedUpdate()
     {
         this.CheckExp();

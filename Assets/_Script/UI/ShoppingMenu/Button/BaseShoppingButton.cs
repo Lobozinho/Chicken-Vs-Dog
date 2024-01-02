@@ -37,6 +37,7 @@ public abstract class BaseShoppingButton : BaseButton
 
     protected override void OnClick()
     {
+        base.OnClick();
         this.level++;
         this.price += this.scale;
         ManagerCtrl.Instance.PlayerManager.PlayerCoin.DecreaseCoin(this.price);

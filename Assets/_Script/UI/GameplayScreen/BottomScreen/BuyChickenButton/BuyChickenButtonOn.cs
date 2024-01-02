@@ -20,6 +20,7 @@ public class BuyChickenButtonOn : BaseButton
     }
     protected override void OnClick()
     {
+        base.OnClick();
         UICtrl.Instance.DragAndDrop.UISpawnerCtrl.ChickenSpawner.ChickenZeroSpawnInLobby();
         int chickenPrice = this.GetChickenPrice();
         ManagerCtrl.Instance.PlayerManager.PlayerCoin.DecreaseCoin(chickenPrice);

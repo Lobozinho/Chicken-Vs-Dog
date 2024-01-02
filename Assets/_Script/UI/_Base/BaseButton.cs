@@ -32,6 +32,9 @@ public abstract class BaseButton : LoboMonoBehaviour
     }
 
 
-    protected abstract void OnClick();
+    protected virtual void OnClick()
+    {
+        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade.DontUpgradeShield();
+    }
 
 }

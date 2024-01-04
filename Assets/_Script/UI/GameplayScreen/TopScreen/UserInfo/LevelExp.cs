@@ -10,9 +10,4 @@ public class LevelExp : BaseSlider
         this.OnChanged(newValue);
     }
     
-    protected override void OnChanged(float newValue)
-    {
-        this.slider.value = newValue;
-    }
-
 }

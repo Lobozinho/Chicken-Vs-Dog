@@ -11,6 +11,8 @@ public class ShieldPrefab : ObjectDragAndDrop, IPointerClickHandler
     [SerializeField] private ShieldModel _shieldModel;
     [SerializeField] private ShieldPrefabUpgrade _upgrade;
     public ShieldPrefabUpgrade Upgrade => _upgrade;
+    
+    [SerializeField] private ShieldPrefabRepair _repair;
 
     [SerializeField] private ShieldDamageReceiver _damageReceiver;
     public ShieldDamageReceiver DamageReceiver => _damageReceiver;
@@ -31,6 +33,7 @@ public class ShieldPrefab : ObjectDragAndDrop, IPointerClickHandler
         this.LoadShieldModel();
         this.LoadShieldPrefabUpgrade();
         this.LoadShieldDamageReceiver();
+        this.LoadShieldPrefabRepair();
     }
 
     void LoadShieldModel()
@@ -54,6 +57,13 @@ public class ShieldPrefab : ObjectDragAndDrop, IPointerClickHandler
         Debug.LogWarning(transform.name + ": LoadShieldDamageReceiver", gameObject);
     }
 
+    void LoadShieldPrefabRepair()
+    {
+        if (this._repair != null) return;
+        this._repair = GetComponentInChildren<ShieldPrefabRepair>();
+        Debug.LogWarning(transform.name + ": LoadShieldPrefabRepair", gameObject);
+    }
+
     public void SetFalseIsSelectedAllShieldPrefab()
     {
         ShieldPrefab[] allShields = FindObjectsOfType<ShieldPrefab>();
@@ -70,8 +80,10 @@ public class ShieldPrefab : ObjectDragAndDrop, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        this._upgrade.ShieldPrefabUpgrading();
-        this.SetFalseIsSelectedAllShieldPrefab();
         this._isSelected = true;
+        this.SetFalseIsSelectedAllShieldPrefab();
+        this._upgrade.ShieldPrefabUpgrading();
+        this._repair.ShieldPrefabRepairing();
     }
+
 }

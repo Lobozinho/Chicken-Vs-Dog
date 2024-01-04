@@ -5,9 +5,9 @@ using UnityEngine;
 public class ShieldSlider : BaseSlider
 {
     
-    protected override void OnChanged(float newValue)
+    public void ShowShieldSlider(float newValue)
     {
-        
+        this.OnChanged(newValue);
     }
 
 }

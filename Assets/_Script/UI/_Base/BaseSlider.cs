@@ -32,7 +32,10 @@ public abstract class BaseSlider : LoboMonoBehaviour
         this.slider.onValueChanged.AddListener(this.OnChanged);
     }
 
-    protected abstract void OnChanged(float newValue);
+    protected virtual void OnChanged(float newValue)
+    {
+        this.slider.value = newValue;
+    }
 
     protected virtual void DisableSliderInteraction()
     {

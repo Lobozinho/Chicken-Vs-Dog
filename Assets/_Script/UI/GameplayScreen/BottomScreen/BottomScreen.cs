@@ -11,11 +11,15 @@ public class BottomScreen : LoboMonoBehaviour
     [SerializeField] private ShieldUpgrade _shieldUpgrade;
     public ShieldUpgrade ShieldUpgrade => _shieldUpgrade;
 
+    [SerializeField] private ShieldRepair _shieldRepair;
+    public ShieldRepair ShieldRepair => _shieldRepair;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadBuyChickenButton();
         this.LoadShieldUpgrade();
+        this.LoadShieldRepair();
     }
 
     void LoadBuyChickenButton()
@@ -30,6 +34,13 @@ public class BottomScreen : LoboMonoBehaviour
         if (this._shieldUpgrade != null) return;
         this._shieldUpgrade = GetComponentInChildren<ShieldUpgrade>();
         Debug.LogWarning(transform.name + ": LoadShieldUpgrade", gameObject);
+    }
+
+    void LoadShieldRepair()
+    {
+        if (this._shieldRepair != null) return;
+        this._shieldRepair = GetComponentInChildren<ShieldRepair>();
+        Debug.LogWarning(transform.name + ": LoadShieldRepair", gameObject);
     }
 
 }

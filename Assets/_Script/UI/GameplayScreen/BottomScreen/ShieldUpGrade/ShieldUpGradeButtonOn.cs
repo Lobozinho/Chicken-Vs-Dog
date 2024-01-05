@@ -11,14 +11,6 @@ public class ShieldUpGradeButtonOn : BaseButton
     [SerializeField] private ShieldUpGradePriceText _upGradePriceText;
     public ShieldUpGradePriceText UpGradePriceText => _upGradePriceText;
 
-    [SerializeField] private bool _isClick;
-    public bool IsClick => _isClick;
-
-    public void SetIsClick(bool isClick)
-    {
-        this._isClick = isClick;
-    }
-
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -40,7 +32,6 @@ public class ShieldUpGradeButtonOn : BaseButton
             if (!shield.IsSelected) continue;
             shield.Upgrade.ShieldUpgraded();
         }
-        this._isClick = true;
     }
 
     

@@ -14,4 +14,16 @@ public class ShieldDamageReceiver : DamageReceiver
         this._scaleHP += 1;
     }
 
+    public void ShieldPrefabRepaired()
+    {
+        this.Reborn();
+        this.ShowShieldSlider();
+    }
+
+    public void ShowShieldSlider()
+    {
+        float newValue = (float)this.hp / (float)this.hpMax;
+        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldRepair.ButtonOn.ShieldSlider.ShowShieldSlider(newValue);
+    }
+
 }

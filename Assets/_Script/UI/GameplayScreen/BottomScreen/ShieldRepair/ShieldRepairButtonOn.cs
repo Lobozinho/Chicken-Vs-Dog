@@ -23,7 +23,12 @@ public class ShieldRepairButtonOn : BaseButton
 
     protected override void OnClick()
     {
-        Debug.Log("ShieldRepairButtonOn OnClick");        
+        ShieldPrefab[] allShields = FindObjectsOfType<ShieldPrefab>();
+        foreach (ShieldPrefab shield in allShields)
+        {
+            if (!shield.IsSelected) continue;
+            shield.Repair.ShieldPrefabRepaired();
+        }
     }
 
 }

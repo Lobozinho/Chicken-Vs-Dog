@@ -13,6 +13,7 @@ public class ShieldPrefab : ObjectDragAndDrop, IPointerClickHandler
     public ShieldPrefabUpgrade Upgrade => _upgrade;
     
     [SerializeField] private ShieldPrefabRepair _repair;
+    public ShieldPrefabRepair Repair => _repair;
 
     [SerializeField] private ShieldDamageReceiver _damageReceiver;
     public ShieldDamageReceiver DamageReceiver => _damageReceiver;
@@ -80,8 +81,8 @@ public class ShieldPrefab : ObjectDragAndDrop, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        this._isSelected = true;
         this.SetFalseIsSelectedAllShieldPrefab();
+        this._isSelected = true;
         this._upgrade.ShieldPrefabUpgrading();
         this._repair.ShieldPrefabRepairing();
     }

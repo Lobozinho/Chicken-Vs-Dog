@@ -507,7 +507,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2815,6 +2815,7 @@ GameObject:
   - component: {fileID: 191014052}
   - component: {fileID: 191014054}
   - component: {fileID: 191014053}
+  - component: {fileID: 191014055}
   m_Layer: 5
   m_Name: ShieldRepairButtonOff
   m_TagString: Untagged
@@ -2882,6 +2883,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191014051}
   m_CullTransparentMesh: 1
+--- !u!114 &191014055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191014051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd07cbb713c6a264085678d20271cb34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &207665666
 GameObject:
   m_ObjectHideFlags: 0
@@ -10500,8 +10513,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 191014052}
   - {fileID: 1637043454}
+  - {fileID: 191014052}
   m_Father: {fileID: 2127150754}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10523,6 +10536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buttonOn: {fileID: 1637043458}
+  _buttonOff: {fileID: 191014055}
 --- !u!1 &895685786
 GameObject:
   m_ObjectHideFlags: 0
@@ -14690,7 +14704,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1146055210}
   _upGradePriceText: {fileID: 2044274106}
-  _isClick: 0
 --- !u!1001 &1162669316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15863,7 +15876,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20639,7 +20652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1637043454
 RectTransform:
   m_ObjectHideFlags: 0

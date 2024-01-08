@@ -77,5 +77,6 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler, I
     public void OnPointerClick(PointerEventData eventData)
     {
         UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade.DontUpgradeShield();
+        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldRepair.ButtonOff.gameObject.SetActive(true);
     }
 }

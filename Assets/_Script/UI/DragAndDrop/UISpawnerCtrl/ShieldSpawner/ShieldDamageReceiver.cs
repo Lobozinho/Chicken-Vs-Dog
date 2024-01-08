@@ -26,4 +26,10 @@ public class ShieldDamageReceiver : DamageReceiver
         UICtrl.Instance.GameplayScreen.BottomScreen.ShieldRepair.ButtonOn.ShieldSlider.ShowShieldSlider(newValue);
     }
 
+    public bool IsCanRepair()
+    {
+        if (this.hp == this.hpMax) return false;
+        return true;
+    }
+
 }

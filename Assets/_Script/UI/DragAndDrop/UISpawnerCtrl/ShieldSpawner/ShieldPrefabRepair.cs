@@ -9,16 +9,42 @@ public class ShieldPrefabRepair : BaseShieldPrefab
 
     public void ShieldPrefabRepairing()
     {
-        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldRepair.ButtonOff.gameObject.SetActive(false);
-        this.shieldPrefab.DamageReceiver.ShowShieldSlider();
-        this.ShowRepairPrice();
+        if (this.IsCanRepair()) this.CanRepair();
+        else this.CantRepair();
+        
     }
 
-    private void ShowRepairPrice()
+    private bool IsCanRepair()
+    {
+        if (!this.shieldPrefab.DamageReceiver.IsCanRepair()) return false;
+        if(!this.IsEnoughMoney()) return false;
+        return true;
+    }
+
+    private void CanRepair()
+    {
+        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldRepair.ButtonOff.gameObject.SetActive(false);
+        this.shieldPrefab.DamageReceiver.ShowShieldSliderButtonOn();
+        this.ShowRepairPriceButtonOn();
+    }
+
+    private void CantRepair()
+    {
+        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldRepair.ButtonOff.gameObject.SetActive(true);
+        this.shieldPrefab.DamageReceiver.ShowShieldSliderButtonOff();
+        this.ShowRepairPriceButtonOff();
+    }
+
+    private void ShowRepairPriceButtonOn()
     {
         UICtrl.Instance.GameplayScreen.BottomScreen.ShieldRepair.ButtonOn.RepairPriceText.ShowRepairPrice(this._repairPrice);
     }
-    
+
+    private void ShowRepairPriceButtonOff()
+    {
+        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldRepair.ButtonOff.RepairPriceText.ShowRepairPrice(this._repairPrice);
+    }
+
     public void ShieldPrefabRepaired()
     {
         if (!this.IsCanRepair()) return;
@@ -26,29 +52,14 @@ public class ShieldPrefabRepair : BaseShieldPrefab
         ManagerCtrl.Instance.PlayerManager.PlayerCoin.DecreaseCoin(this._repairPrice);
         this._repairPrice += this._scaleRepairPrice;
         this._scaleRepairPrice++;
+        this.ShieldPrefabRepairing();
     }
 
-    private bool IsCanRepair()
-    {
-        if (!this.shieldPrefab.DamageReceiver.IsCanRepair()) return false;
-            
-        return true;
-    }
-
-    private bool CheckMoney()
+    private bool IsEnoughMoney()
     {
         int playerCoin = ManagerCtrl.Instance.PlayerManager.PlayerCoin.Coin;
-        if (playerCoin < this._repairPrice)
-        {
-            this.CantRepair();
-            return false;
-        }
+        if (playerCoin < this._repairPrice) return false;
         return true;
-    }
-    
-    private void CantRepair()
-    {
-        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldRepair.ButtonOff.gameObject.SetActive(true);
     }
     
 }

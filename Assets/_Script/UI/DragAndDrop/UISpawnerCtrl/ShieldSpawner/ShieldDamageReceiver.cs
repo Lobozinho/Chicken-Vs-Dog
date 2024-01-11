@@ -17,13 +17,19 @@ public class ShieldDamageReceiver : DamageReceiver
     public void ShieldPrefabRepaired()
     {
         this.Reborn();
-        this.ShowShieldSlider();
+        this.ShowShieldSliderButtonOn();
     }
 
-    public void ShowShieldSlider()
+    public void ShowShieldSliderButtonOn()
     {
         float newValue = (float)this.hp / (float)this.hpMax;
         UICtrl.Instance.GameplayScreen.BottomScreen.ShieldRepair.ButtonOn.ShieldSlider.ShowShieldSlider(newValue);
+    }
+
+    public void ShowShieldSliderButtonOff()
+    {
+        float newValue = (float)this.hp / (float)this.hpMax;
+        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldRepair.ButtonOff.ShieldSlider.ShowShieldSlider(newValue);
     }
 
     public bool IsCanRepair()

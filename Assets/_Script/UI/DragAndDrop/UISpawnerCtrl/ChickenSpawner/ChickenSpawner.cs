@@ -32,4 +32,13 @@ public class ChickenSpawner : Spawner
         newPrefab.SetParent(this._parent, false);
     }
 
+    public virtual void SetFalseIsSelectedAllChickenPrefab()
+    {
+        ChickenPrefab[] allChickens = FindObjectsOfType<ChickenPrefab>();
+        foreach (ChickenPrefab chicken in allChickens)
+        {
+            chicken.SetFalseIsSelected();
+        }
+    }
+
 }

@@ -31,11 +31,21 @@ public abstract class BaseButton : LoboMonoBehaviour
         this.button.onClick.AddListener(this.OnClick);
     }
 
-
     protected virtual void OnClick()
+    {
+        this.UnClickShieldPrefab();
+        this.UnClickChickenPrefab();
+    }
+
+    private void UnClickShieldPrefab()
     {
         UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade.DontUpgradeShield();
         UICtrl.Instance.GameplayScreen.BottomScreen.ShieldRepair.ButtonOff.gameObject.SetActive(true);
+    }
+
+    private void UnClickChickenPrefab()
+    {
+        UICtrl.Instance.DragAndDrop.UISpawnerCtrl.ChickenSpawner.SetFalseIsSelectedAllChickenPrefab();
     }
 
 }

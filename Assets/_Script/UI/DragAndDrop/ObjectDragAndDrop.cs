@@ -7,13 +7,15 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(CanvasGroup))]
 [RequireComponent(typeof(BoxCollider2D))]
 
-public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerClickHandler
 {
     [Header("Object Drag And Drop")]
     [SerializeField] protected CanvasGroup canvasGroup;
     [SerializeField] protected BoxCollider2D boxCollider2D;
     [SerializeField] protected Transform realParent;
     [SerializeField] protected bool isCanDrag = true;
+    [SerializeField] protected bool isSelected = false;
+    public bool IsSelected => isSelected;
 
     public void SetRealParent(Transform realParent)
 
@@ -51,8 +53,6 @@ public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, 
         transform.SetParent(containersCtrl);
     }
 
-    // on being drag => on drag => on drop => on end drag
-
     public virtual void OnDrag(PointerEventData eventData)
     {
         if (!this.isCanDrag) return;
@@ -82,5 +82,18 @@ public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, 
     {
         return ManagerCtrl.Instance.InputManager.MouseWorldPos;
     }
+
+    public virtual void OnPointerClick(PointerEventData eventData)
+    {
+        this.SetFalseIsSelectedAllPrefab();
+        this.isSelected = true;
+    }
+
+    public virtual void SetFalseIsSelected()
+    {
+        this.isSelected = false;
+    }
+
+    public abstract void SetFalseIsSelectedAllPrefab();
 
 }

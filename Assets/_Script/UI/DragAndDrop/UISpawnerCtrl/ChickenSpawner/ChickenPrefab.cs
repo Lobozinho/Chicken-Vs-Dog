@@ -31,4 +31,9 @@ public class ChickenPrefab : ObjectDragAndDrop
         Debug.LogWarning(transform.name + ": LoadChickenShooting", gameObject);
     }
 
+    public override void SetFalseIsSelectedAllPrefab()
+    {
+        UICtrl.Instance.DragAndDrop.UISpawnerCtrl.ChickenSpawner.SetFalseIsSelectedAllChickenPrefab();
+    }
+
 }

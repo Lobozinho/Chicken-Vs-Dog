@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ShieldPrefab : ObjectDragAndDrop, IPointerClickHandler
+public class ShieldPrefab : ObjectDragAndDrop
 {
     [Header("Shield Prefab")]
     [SerializeField] const string SHIELD = "Shield";
@@ -17,9 +17,6 @@ public class ShieldPrefab : ObjectDragAndDrop, IPointerClickHandler
 
     [SerializeField] private ShieldDamageReceiver _damageReceiver;
     public ShieldDamageReceiver DamageReceiver => _damageReceiver;
-
-    [SerializeField] private bool _isSelected = false;
-    public bool IsSelected => _isSelected;
 
     protected override void CheckIsCanDrag()
     {
@@ -65,7 +62,7 @@ public class ShieldPrefab : ObjectDragAndDrop, IPointerClickHandler
         Debug.LogWarning(transform.name + ": LoadShieldPrefabRepair", gameObject);
     }
 
-    public void SetFalseIsSelectedAllShieldPrefab()
+    public override void SetFalseIsSelectedAllPrefab()
     {
         ShieldPrefab[] allShields = FindObjectsOfType<ShieldPrefab>();
         foreach(ShieldPrefab shield in allShields)
@@ -74,15 +71,9 @@ public class ShieldPrefab : ObjectDragAndDrop, IPointerClickHandler
         }   
     }
     
-    public void SetFalseIsSelected()
+    public override void OnPointerClick(PointerEventData eventData)
     {
-        this._isSelected = false;
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        this.SetFalseIsSelectedAllShieldPrefab();
-        this._isSelected = true;
+        base.OnPointerClick(eventData);
         this._upgrade.ShieldPrefabUpgrading();
         this._repair.ShieldPrefabRepairing();
     }

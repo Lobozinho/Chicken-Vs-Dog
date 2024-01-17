@@ -32,24 +32,4 @@ public class ShieldUpgrade : LoboMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadShieldUpGradeButtonOff", gameObject);
     }
 
-    public void DontUpgradeShield()
-    {
-        this.SetFalseIsSelectedAllShieldPrefab();
-        this.OnEnableShieldUpgradeButtonOff();
-    }
-
-    public void SetFalseIsSelectedAllShieldPrefab()
-    {
-        ShieldPrefab[] allShields = FindObjectsOfType<ShieldPrefab>();
-        foreach (ShieldPrefab shield in allShields)
-        {
-            shield.SetFalseIsSelected();
-        }
-    }
-
-    public void OnEnableShieldUpgradeButtonOff()
-    {
-        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade.ButtonOff.gameObject.SetActive(true);
-    }
-
 }

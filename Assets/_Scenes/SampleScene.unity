@@ -2919,6 +2919,7 @@ GameObject:
   m_Component:
   - component: {fileID: 191014052}
   - component: {fileID: 191014054}
+  - component: {fileID: 191014056}
   - component: {fileID: 191014053}
   - component: {fileID: 191014055}
   m_Layer: 5
@@ -3002,8 +3003,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd07cbb713c6a264085678d20271cb34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 191014056}
   _shieldSlider: {fileID: 123403112}
   _repairPriceText: {fileID: 2012340886}
+--- !u!114 &191014056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191014051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 191014053}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &207665666
 GameObject:
   m_ObjectHideFlags: 0
@@ -3333,7 +3379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &245530723
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9106,6 +9152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 736889649}
   - component: {fileID: 736889651}
+  - component: {fileID: 736889653}
   - component: {fileID: 736889650}
   - component: {fileID: 736889652}
   m_Layer: 5
@@ -9188,8 +9235,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048be93583c32324aafba8142835a1fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 736889653}
   _upGradePriceText: {fileID: 1527977762}
   _coin: {fileID: 1337392872}
+--- !u!114 &736889653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736889648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 736889650}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &738694990
 GameObject:
   m_ObjectHideFlags: 0
@@ -26137,6 +26229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ce276c1d7e3fd47b80775fe9eaf2f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _removeButtonOn: {fileID: 245530727}
   _buyChickenButton: {fileID: 981204500}
   _shieldUpgrade: {fileID: 1852437251}
   _shieldRepair: {fileID: 889982232}

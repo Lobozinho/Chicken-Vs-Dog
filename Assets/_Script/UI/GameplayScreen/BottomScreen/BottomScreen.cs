@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class BottomScreen : LoboMonoBehaviour
 {
-   
+
+    [SerializeField] private RemoveButtonOn _removeButtonOn;
+    public RemoveButtonOn RemoveButtonOn => _removeButtonOn;
+
     [SerializeField] private BuyChickenButton _buyChickenButton;
     public BuyChickenButton BuyChickenButton => _buyChickenButton;
 
@@ -17,9 +20,17 @@ public class BottomScreen : LoboMonoBehaviour
     protected override void LoadComponents()
     {
         base.LoadComponents();
+        this.LoadRemoveButtonOn();
         this.LoadBuyChickenButton();
         this.LoadShieldUpgrade();
         this.LoadShieldRepair();
+    }
+
+    void LoadRemoveButtonOn()
+    {
+        if (this._removeButtonOn != null) return;
+        this._removeButtonOn = GetComponentInChildren<RemoveButtonOn>();
+        Debug.LogWarning(transform.name + ": LoadRemoveButtonOn", gameObject);
     }
 
     void LoadBuyChickenButton()

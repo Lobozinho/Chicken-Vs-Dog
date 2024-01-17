@@ -22,4 +22,24 @@ public class ShieldSpawner : Spawner
         newPrefab.SetParent(this._parent, false);
     }
 
+    public void DontUpgradeShield()
+    {
+        this.SetFalseIsSelectedAllShieldPrefab();
+        this.OnEnableShieldUpgradeButtonOff();
+    }
+
+    public void SetFalseIsSelectedAllShieldPrefab()
+    {
+        ShieldPrefab[] allShields = FindObjectsOfType<ShieldPrefab>();
+        foreach (ShieldPrefab shield in allShields)
+        {
+            shield.SetFalseIsSelected();
+        }
+    }
+
+    public void OnEnableShieldUpgradeButtonOff()
+    {
+        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade.ButtonOff.gameObject.SetActive(true);
+    }
+
 }

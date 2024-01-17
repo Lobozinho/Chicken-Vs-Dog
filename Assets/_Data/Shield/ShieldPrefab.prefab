@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shieldPrefab: {fileID: 809610858942828046}
+  _repairPrice: 1
+  _scaleRepairPrice: 1
 --- !u!1 &1796417279113510685
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,6 +104,42 @@ MonoBehaviour:
   shieldPrefab: {fileID: 809610858942828046}
   _upgradePrice: 1
   _scaleUpgradePrice: 1
+--- !u!1 &3993329293680587001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6318450594484089425}
+  m_Layer: 5
+  m_Name: Despawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6318450594484089425
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3993329293680587001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8606454438862269960}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6340960943524345978
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,6 +277,7 @@ RectTransform:
   - {fileID: 2171739967556296388}
   - {fileID: 6154272468724010982}
   - {fileID: 4519717792931450248}
+  - {fileID: 6318450594484089425}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -385,11 +424,11 @@ MonoBehaviour:
   boxCollider2D: {fileID: 8534780643731034736}
   realParent: {fileID: 0}
   isCanDrag: 1
+  isSelected: 0
   _shieldModel: {fileID: 1396517088934606726}
   _upgrade: {fileID: 5534928448246791832}
   _repair: {fileID: 1014529714019858207}
   _damageReceiver: {fileID: 525354241536119361}
-  _isSelected: 0
 --- !u!1 &8908901248127283135
 GameObject:
   m_ObjectHideFlags: 0

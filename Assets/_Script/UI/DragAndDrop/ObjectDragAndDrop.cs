@@ -87,13 +87,24 @@ public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, 
     {
         this.SetFalseIsSelectedAllPrefab();
         this.isSelected = true;
+        this.SetActiveRemoveButtonOn(true);
     }
 
     public virtual void SetFalseIsSelected()
     {
         this.isSelected = false;
+        this.SetActiveRemoveButtonOn(false);
     }
 
-    public abstract void SetFalseIsSelectedAllPrefab();
+    protected virtual void SetActiveRemoveButtonOn(bool active)
+    {
+        UICtrl.Instance.GameplayScreen.BottomScreen.RemoveButtonOn.gameObject.SetActive(active);
+    }
+
+    public virtual void SetFalseIsSelectedAllPrefab()
+    {
+        UICtrl.Instance.DragAndDrop.UISpawnerCtrl.ChickenSpawner.SetFalseIsSelectedAllChickenPrefab();
+        UICtrl.Instance.DragAndDrop.UISpawnerCtrl.ShieldSpawner.SetFalseIsSelectedAllShieldPrefab();
+    }
 
 }

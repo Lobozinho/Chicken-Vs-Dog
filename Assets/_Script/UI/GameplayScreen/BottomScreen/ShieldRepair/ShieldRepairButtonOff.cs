@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldRepairButtonOff : LoboMonoBehaviour
+public class ShieldRepairButtonOff : BaseButton
 {
 
     [SerializeField] private ShieldSlider _shieldSlider;

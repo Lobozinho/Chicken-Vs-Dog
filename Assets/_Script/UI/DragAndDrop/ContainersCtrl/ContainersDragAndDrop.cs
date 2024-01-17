@@ -82,7 +82,7 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler, I
 
     private void UnClickShieldPrefab()
     {
-        UICtrl.Instance.GameplayScreen.BottomScreen.ShieldUpgrade.DontUpgradeShield();
+        UICtrl.Instance.DragAndDrop.UISpawnerCtrl.ShieldSpawner.DontUpgradeShield();
         UICtrl.Instance.GameplayScreen.BottomScreen.ShieldRepair.ButtonOff.gameObject.SetActive(true);
     }
 

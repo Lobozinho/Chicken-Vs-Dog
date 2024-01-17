@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldUpGradeButtonOff : LoboMonoBehaviour
+public class ShieldUpGradeButtonOff : BaseButton
 {
 
     [SerializeField] private ShieldUpGradePriceText _upGradePriceText;

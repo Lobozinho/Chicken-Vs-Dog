@@ -62,15 +62,6 @@ public class ShieldPrefab : ObjectDragAndDrop
         Debug.LogWarning(transform.name + ": LoadShieldPrefabRepair", gameObject);
     }
 
-    public override void SetFalseIsSelectedAllPrefab()
-    {
-        ShieldPrefab[] allShields = FindObjectsOfType<ShieldPrefab>();
-        foreach(ShieldPrefab shield in allShields)
-        {
-            shield.SetFalseIsSelected();   
-        }   
-    }
-    
     public override void OnPointerClick(PointerEventData eventData)
     {
         base.OnPointerClick(eventData);

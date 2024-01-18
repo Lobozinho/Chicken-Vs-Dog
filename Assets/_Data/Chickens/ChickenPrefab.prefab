@@ -314,7 +314,9 @@ MonoBehaviour:
   boxCollider2D: {fileID: 1530970662576013684}
   realParent: {fileID: 0}
   isCanDrag: 1
+  isSelected: 0
   _chickenShooting: {fileID: 4750071633321594062}
+  _chickenPrefabDespawn: {fileID: 522833642603341673}
 --- !u!1 &917691940992928153
 GameObject:
   m_ObjectHideFlags: 0

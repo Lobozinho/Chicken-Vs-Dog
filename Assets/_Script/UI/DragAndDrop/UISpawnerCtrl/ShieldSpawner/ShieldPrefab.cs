@@ -18,6 +18,9 @@ public class ShieldPrefab : ObjectDragAndDrop
     [SerializeField] private ShieldDamageReceiver _damageReceiver;
     public ShieldDamageReceiver DamageReceiver => _damageReceiver;
 
+    [SerializeField] private ShieldPrefabDespawn _shieldPrefabDespawn;
+    public ShieldPrefabDespawn Despawn => _shieldPrefabDespawn;
+
     protected override void CheckIsCanDrag()
     {
         string parentName = transform.parent.name;
@@ -32,6 +35,7 @@ public class ShieldPrefab : ObjectDragAndDrop
         this.LoadShieldPrefabUpgrade();
         this.LoadShieldDamageReceiver();
         this.LoadShieldPrefabRepair();
+        this.LoadShieldPrefabDespawn();
     }
 
     void LoadShieldModel()
@@ -60,6 +64,13 @@ public class ShieldPrefab : ObjectDragAndDrop
         if (this._repair != null) return;
         this._repair = GetComponentInChildren<ShieldPrefabRepair>();
         Debug.LogWarning(transform.name + ": LoadShieldPrefabRepair", gameObject);
+    }
+
+    void LoadShieldPrefabDespawn()
+    {
+        if (this._shieldPrefabDespawn != null) return;
+        this._shieldPrefabDespawn = GetComponentInChildren<ShieldPrefabDespawn>();
+        Debug.LogWarning(transform.name + ": LoadShieldPrefabDespawn", gameObject);
     }
 
     public override void OnPointerClick(PointerEventData eventData)

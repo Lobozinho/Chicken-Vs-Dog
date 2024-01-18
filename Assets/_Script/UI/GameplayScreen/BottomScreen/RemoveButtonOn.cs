@@ -8,7 +8,6 @@ public class RemoveButtonOn : BaseButton
     protected override void OnClick()
     {
         this.CheckShieldPrefab();
-        
     }
 
     private void CheckShieldPrefab()
@@ -17,7 +16,19 @@ public class RemoveButtonOn : BaseButton
         foreach (ShieldPrefab shield in allShields)
         {
             if (!shield.IsSelected) continue;
-            shield.Upgrade.ShieldUpgraded();
+            shield.Despawn.Despawning();
+            return;
+        }
+        this.CheckChickenPrefab();
+    }
+
+    private void CheckChickenPrefab()
+    {
+        ChickenPrefab[] allChickens = FindObjectsOfType<ChickenPrefab>();
+        foreach (ChickenPrefab chicken in allChickens)
+        {
+            if (!chicken.IsSelected) continue;
+            chicken.Despawn.Despawning();
         }
     }
 

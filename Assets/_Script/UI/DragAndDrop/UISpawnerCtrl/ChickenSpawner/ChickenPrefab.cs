@@ -8,8 +8,12 @@ public class ChickenPrefab : ObjectDragAndDrop
 {
     [Header("Chicken")]
     [SerializeField] const string STANDY = "Standy";
+
     [SerializeField] private ChickenShooting _chickenShooting;
     public ChickenShooting ChickenShooting => _chickenShooting;
+
+    [SerializeField] private ChickenPrefabDespawn _chickenPrefabDespawn;
+    public ChickenPrefabDespawn Despawn => _chickenPrefabDespawn;
 
     protected override void CheckIsCanDrag()
     {
@@ -22,6 +26,7 @@ public class ChickenPrefab : ObjectDragAndDrop
     {
         base.LoadComponents();
         this.LoadChickenShooting();
+        this.LoadChickenPrefabDespawn();
     }
 
     void LoadChickenShooting()
@@ -29,6 +34,13 @@ public class ChickenPrefab : ObjectDragAndDrop
         if (this._chickenShooting != null) return;
         this._chickenShooting = GetComponentInChildren<ChickenShooting>();
         Debug.LogWarning(transform.name + ": LoadChickenShooting", gameObject);
+    }
+
+    void LoadChickenPrefabDespawn()
+    {
+        if (this._chickenPrefabDespawn != null) return;
+        this._chickenPrefabDespawn = GetComponentInChildren<ChickenPrefabDespawn>();
+        Debug.LogWarning(transform.name + ": LoadChickenPrefabDespawn", gameObject);
     }
 
     public override void OnPointerClick(PointerEventData eventData)

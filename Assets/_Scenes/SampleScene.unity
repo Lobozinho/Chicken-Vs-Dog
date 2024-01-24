@@ -4902,6 +4902,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1225532227}
     m_Modifications:
+    - target: {fileID: 3898438057148651933, guid: cae59db92c45f6b4d934d8b4fcd94c52, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5536129591323914574, guid: cae59db92c45f6b4d934d8b4fcd94c52, type: 3}
       propertyPath: m_Name
       value: Standy_1
@@ -7841,7 +7845,7 @@ MonoBehaviour:
   _timer: 0
   _timeDelay: 5
   _spawnPoint: {fileID: 0}
-  _isSpawn: 0
+  _isSpawn: 1
 --- !u!1001 &640423465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19735,7 +19739,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 1
 --- !u!222 &1528463345
 CanvasRenderer:
   m_ObjectHideFlags: 0

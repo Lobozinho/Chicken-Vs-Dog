@@ -15,10 +15,19 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler, I
     [SerializeField] protected float alphaDropping = 0.5f;
     [SerializeField] protected float alphaEndDrop = 0;
 
+    protected abstract void SetRealParent(GameObject dropObj);
+    protected abstract void ChangeColorImage(GameObject collision);
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadImage();
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        if (transform.childCount == 0) return;
+        this.ChangeAlphaImage(this.alphaEndDrop);
     }
 
     void LoadImage()
@@ -36,8 +45,6 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler, I
         this.ChangeAlphaImage(this.alphaEndDrop);
     }
 
-    protected abstract void ChangeColorImage(GameObject collision);
-
     protected virtual void ChangeRedImage()
     {
         Color redColor = Color.red;
@@ -50,8 +57,6 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler, I
         this.image.color = whiteColor;
     }
 
-    protected abstract void SetRealParent(GameObject dropObj);
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(DOG_TAG)) return;
@@ -63,12 +68,13 @@ public abstract class ContainersDragAndDrop : LoboMonoBehaviour, IDropHandler, I
     {
         if (collision.CompareTag(DOG_TAG)) return;
         this.ChangeColorImage(collision.gameObject);
+        this.ChangeWhiteImage();
         this.ChangeAlphaImage(this.alphaEndDrop);
     }
 
-    void ChangeAlphaImage(float alphaValue)
+    public void ChangeAlphaImage(float alphaValue)
     {
-        if (transform.childCount > 0) return;
+        //if (transform.childCount > 0) return;
         Color imageColor = image.color;
         imageColor.a = alphaValue;
         image.color = imageColor;

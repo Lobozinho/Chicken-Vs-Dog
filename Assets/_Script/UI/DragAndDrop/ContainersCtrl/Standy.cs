@@ -21,7 +21,7 @@ public class Standy : ContainersDragAndDrop
         char indexChar = standyName[standyName.Length - 1];
         int indexStandy = int.Parse(indexChar.ToString());
         ChickenShooting chickenShooting = dropObj.GetComponentInChildren<ChickenShooting>();
-        chickenShooting.SetIndexStandy(indexStandy);
+        //chickenShooting.SetIndexStandy(indexStandy);
     }
 
     protected override void ChangeColorImage(GameObject collision)

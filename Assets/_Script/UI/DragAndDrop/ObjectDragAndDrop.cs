@@ -23,6 +23,10 @@ public abstract class ObjectDragAndDrop : LoboMonoBehaviour, IBeginDragHandler, 
         this.realParent = realParent;
     }
 
+    protected void OnEnable()
+    {
+        this.isCanDrag = true;
+    }
     protected override void LoadComponents()
     {
         this.LoadCanvasGroup();

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChickenSpawner : Spawner
 {
 
+    [SerializeField] public Transform Holder => holder;
     [SerializeField] private Transform _parent;
     void ChickenSpawnInLobby(Transform prefab)
     {

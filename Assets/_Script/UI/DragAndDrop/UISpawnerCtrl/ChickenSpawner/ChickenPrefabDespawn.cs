@@ -7,7 +7,8 @@ public class ChickenPrefabDespawn : MonoBehaviour
 
     public void Despawning()
     {
-        transform.parent.SetParent(null, false);
+        Transform holder = UICtrl.Instance.DragAndDrop.UISpawnerCtrl.ChickenSpawner.Holder;
+        transform.parent.SetParent(holder, false);
         UICtrl.Instance.DragAndDrop.UISpawnerCtrl.ChickenSpawner.Despawn(transform.parent);
     }   
 
